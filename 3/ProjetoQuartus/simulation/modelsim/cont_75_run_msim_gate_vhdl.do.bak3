@@ -1,0 +1,22 @@
+transcript on
+
+set NETLIST_NAME cont_75_6_1200mv_85c_slow.vho
+set NETLIST_FILE [file join [pwd] $NETLIST_NAME]
+
+if {![file exists $NETLIST_FILE]} {
+	set NETLIST_FILE [file join [pwd] simulation modelsim $NETLIST_NAME]
+}
+
+if {![file exists $NETLIST_FILE]} {
+	puts "Arquivo de netlist nao encontrado: $NETLIST_NAME"
+	quit -f
+}
+
+if {[file exists gate_work]} {
+	vdel -lib gate_work -all
+}
+vlib gate_work
+vmap work gate_work
+
+vcom -93 -work work $NETLIST_FILE
+

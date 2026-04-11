@@ -1,0 +1,162 @@
+|cont_75
+CLK => cont_4:u1.CLK
+CLK => cont_4:u2.CLK
+CLK => cont_4:u3.CLK
+CLK => cont_4:u4.CLK
+CLR => cont_4:u1.CLR
+CLR => cont_4:u2.CLR
+CLR => cont_4:u3.CLR
+CLR => cont_4:u4.CLR
+CLR => clk2_sig.IN1
+RST => rst_sig_internal1.IN1
+RST => rst_sig_internal2.IN1
+RST => clk2_sig.IN0
+EN => clk2_sig.IN1
+EN => cont_4:u1.EN
+Q_ms[0] <= cont_4:u1.Q[0]
+Q_ms[1] <= cont_4:u1.Q[1]
+Q_ms[2] <= cont_4:u1.Q[2]
+Q_ms[3] <= cont_4:u1.Q[3]
+Q_ms[4] <= cont_4:u2.Q[0]
+Q_ms[5] <= cont_4:u2.Q[1]
+Q_ms[6] <= cont_4:u2.Q[2]
+Q_ms[7] <= cont_4:u2.Q[3]
+Q_s[0] <= cont_4:u3.Q[0]
+Q_s[1] <= cont_4:u3.Q[1]
+Q_s[2] <= cont_4:u3.Q[2]
+Q_s[3] <= cont_4:u3.Q[3]
+Q_s[4] <= cont_4:u4.Q[0]
+Q_s[5] <= cont_4:u4.Q[1]
+Q_s[6] <= cont_4:u4.Q[2]
+Q_s[7] <= cont_4:u4.Q[3]
+CLK2 <= clk2_sig.DB_MAX_OUTPUT_PORT_TYPE
+CLK3 <= clk3_sig.DB_MAX_OUTPUT_PORT_TYPE
+CLK4 <= clk4_sig.DB_MAX_OUTPUT_PORT_TYPE
+RST_SIG1 <= rst_sig_internal1.DB_MAX_OUTPUT_PORT_TYPE
+RST_SIG2 <= rst_sig_internal2.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|cont_75|cont_4:u1
+CLK => count[0].CLK
+CLK => count[1].CLK
+CLK => count[2].CLK
+CLK => count[3].CLK
+RST => count[0].ALOAD
+RST => count[1].ALOAD
+RST => count[2].ALOAD
+RST => count[3].ALOAD
+EN => count.OUTPUTSELECT
+EN => count.OUTPUTSELECT
+EN => count.OUTPUTSELECT
+EN => count.OUTPUTSELECT
+CLR => count.OUTPUTSELECT
+CLR => count.OUTPUTSELECT
+CLR => count.OUTPUTSELECT
+CLR => count.OUTPUTSELECT
+INPT[0] => count.DATAB
+INPT[0] => count[0].ADATA
+INPT[1] => count.DATAB
+INPT[1] => count[1].ADATA
+INPT[2] => count.DATAB
+INPT[2] => count[2].ADATA
+INPT[3] => count.DATAB
+INPT[3] => count[3].ADATA
+Q[0] <= count[0].DB_MAX_OUTPUT_PORT_TYPE
+Q[1] <= count[1].DB_MAX_OUTPUT_PORT_TYPE
+Q[2] <= count[2].DB_MAX_OUTPUT_PORT_TYPE
+Q[3] <= count[3].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|cont_75|cont_4:u2
+CLK => count[0].CLK
+CLK => count[1].CLK
+CLK => count[2].CLK
+CLK => count[3].CLK
+RST => count[0].ALOAD
+RST => count[1].ALOAD
+RST => count[2].ALOAD
+RST => count[3].ALOAD
+EN => count.OUTPUTSELECT
+EN => count.OUTPUTSELECT
+EN => count.OUTPUTSELECT
+EN => count.OUTPUTSELECT
+CLR => count.OUTPUTSELECT
+CLR => count.OUTPUTSELECT
+CLR => count.OUTPUTSELECT
+CLR => count.OUTPUTSELECT
+INPT[0] => count.DATAB
+INPT[0] => count[0].ADATA
+INPT[1] => count.DATAB
+INPT[1] => count[1].ADATA
+INPT[2] => count.DATAB
+INPT[2] => count[2].ADATA
+INPT[3] => count.DATAB
+INPT[3] => count[3].ADATA
+Q[0] <= count[0].DB_MAX_OUTPUT_PORT_TYPE
+Q[1] <= count[1].DB_MAX_OUTPUT_PORT_TYPE
+Q[2] <= count[2].DB_MAX_OUTPUT_PORT_TYPE
+Q[3] <= count[3].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|cont_75|cont_4:u3
+CLK => count[0].CLK
+CLK => count[1].CLK
+CLK => count[2].CLK
+CLK => count[3].CLK
+RST => count[0].ALOAD
+RST => count[1].ALOAD
+RST => count[2].ALOAD
+RST => count[3].ALOAD
+EN => count.OUTPUTSELECT
+EN => count.OUTPUTSELECT
+EN => count.OUTPUTSELECT
+EN => count.OUTPUTSELECT
+CLR => count.OUTPUTSELECT
+CLR => count.OUTPUTSELECT
+CLR => count.OUTPUTSELECT
+CLR => count.OUTPUTSELECT
+INPT[0] => count.DATAB
+INPT[0] => count[0].ADATA
+INPT[1] => count.DATAB
+INPT[1] => count[1].ADATA
+INPT[2] => count.DATAB
+INPT[2] => count[2].ADATA
+INPT[3] => count.DATAB
+INPT[3] => count[3].ADATA
+Q[0] <= count[0].DB_MAX_OUTPUT_PORT_TYPE
+Q[1] <= count[1].DB_MAX_OUTPUT_PORT_TYPE
+Q[2] <= count[2].DB_MAX_OUTPUT_PORT_TYPE
+Q[3] <= count[3].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|cont_75|cont_4:u4
+CLK => count[0].CLK
+CLK => count[1].CLK
+CLK => count[2].CLK
+CLK => count[3].CLK
+RST => count[0].ALOAD
+RST => count[1].ALOAD
+RST => count[2].ALOAD
+RST => count[3].ALOAD
+EN => count.OUTPUTSELECT
+EN => count.OUTPUTSELECT
+EN => count.OUTPUTSELECT
+EN => count.OUTPUTSELECT
+CLR => count.OUTPUTSELECT
+CLR => count.OUTPUTSELECT
+CLR => count.OUTPUTSELECT
+CLR => count.OUTPUTSELECT
+INPT[0] => count.DATAB
+INPT[0] => count[0].ADATA
+INPT[1] => count.DATAB
+INPT[1] => count[1].ADATA
+INPT[2] => count.DATAB
+INPT[2] => count[2].ADATA
+INPT[3] => count.DATAB
+INPT[3] => count[3].ADATA
+Q[0] <= count[0].DB_MAX_OUTPUT_PORT_TYPE
+Q[1] <= count[1].DB_MAX_OUTPUT_PORT_TYPE
+Q[2] <= count[2].DB_MAX_OUTPUT_PORT_TYPE
+Q[3] <= count[3].DB_MAX_OUTPUT_PORT_TYPE
+
+

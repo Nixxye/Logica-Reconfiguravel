@@ -1,0 +1,11 @@
+transcript on
+set SCRIPT_FILE [info script]
+if {$SCRIPT_FILE eq ""} {
+	set PROJECT_DIR [pwd]
+} else {
+	set PROJECT_DIR [file dirname [file dirname [file dirname [file normalize $SCRIPT_FILE]]]]
+}
+
+set ::SIM_MODE gate
+do [file join $PROJECT_DIR cont_75.do]
+

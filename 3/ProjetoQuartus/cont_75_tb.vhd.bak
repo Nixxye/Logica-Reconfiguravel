@@ -1,0 +1,98 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+entity cont_75_tb is
+end entity cont_75_tb;
+
+architecture tb of cont_75_tb is
+    constant CLK_PERIOD : time := 1 ms;
+
+    signal clk : std_logic := '0';
+    signal clr : std_logic := '0';
+    signal rst : std_logic := '0';
+    signal en  : std_logic := '0';
+    signal q   : std_logic_vector(7 downto 0);
+
+    function to_bcd8(value : integer) return std_logic_vector is
+        variable tens  : integer;
+        variable units : integer;
+        variable result : std_logic_vector(7 downto 0);
+    begin
+        tens := value / 10;
+        units := value mod 10;
+        result(7 downto 4) := std_logic_vector(to_unsigned(tens, 4));
+        result(3 downto 0) := std_logic_vector(to_unsigned(units, 4));
+        return result;
+    end function;
+
+    function from_bcd8(value : std_logic_vector(7 downto 0)) return integer is
+    begin
+        return to_integer(unsigned(value(7 downto 4))) * 10 +
+               to_integer(unsigned(value(3 downto 0)));
+    end function;
+begin
+    dut : entity work.cont_75
+        port map (
+            CLK => clk,
+            CLR => clr,
+            RST => rst,
+            EN  => en,
+            Q   => q
+        );
+
+    clk_process : process
+    begin
+        while true loop
+            clk <= '0';
+            wait for CLK_PERIOD / 2;
+            clk <= '1';
+            wait for CLK_PERIOD / 2;
+        end loop;
+    end process;
+
+    stimulus : process
+        variable expected : integer := 15;
+        variable observed  : integer;
+    begin
+        clr <= '1';
+        rst <= '0';
+        en  <= '0';
+        wait for 3 * CLK_PERIOD;
+        clr <= '0';
+        wait for CLK_PERIOD;
+
+        assert q = to_bcd8(15)
+            report "Falha no valor inicial: esperado 15" severity failure;
+
+        rst <= '1';
+        wait for CLK_PERIOD;
+        rst <= '0';
+        wait for CLK_PERIOD;
+
+        assert q = to_bcd8(15)
+            report "Falha no reset: esperado retorno para 15" severity failure;
+
+        en <= '1';
+        for i in 1 to 75 loop
+            wait until rising_edge(clk);
+            wait for 1 ns;
+
+            if expected = 89 then
+                expected := 15;
+            else
+                expected := expected + 1;
+            end if;
+
+            observed := from_bcd8(q);
+            assert observed = expected
+                report "Sequencia incorreta. Esperado=" & integer'image(expected) &
+                       " observado=" & integer'image(observed)
+                severity failure;
+        end loop;
+
+        wait for 10 sec;
+        assert true report "Teste concluido com sucesso" severity note;
+        wait;
+    end process;
+end architecture tb;
