@@ -17,6 +17,7 @@ unset -nocomplain ::SIM_MODE
 
 set RTL_SOURCE [file join $PROJECT_DIR cont_75.vhd]
 set CONT4_SOURCE [file join $PROJECT_DIR cont_4.vhd]
+set BCD7SEG_SOURCE [file join $PROJECT_DIR bcd_7seg.vhd]
 set TB_SOURCE [file join $PROJECT_DIR cont_75_tb.vhd]
 set GATE_DIR [file join $PROJECT_DIR simulation modelsim]
 set GATE_NETLIST [file join $GATE_DIR cont_75.vho]
@@ -42,6 +43,7 @@ switch -- $MODE {
 
         puts "Simulacao RTL"
         vcom -93 $CONT4_SOURCE
+        vcom -93 $BCD7SEG_SOURCE
         vcom -93 $RTL_SOURCE
         vcom -93 $TB_SOURCE
         vsim -t ps -voptargs=+acc work.cont_75_tb
@@ -74,11 +76,16 @@ switch -- $MODE {
 }
 
 add wave -noupdate sim:/cont_75_tb/clk
-add wave -noupdate sim:/cont_75_tb/clr
 add wave -noupdate sim:/cont_75_tb/rst
-add wave -noupdate sim:/cont_75_tb/en
+add wave -noupdate sim:/cont_75_tb/btn_play_pause
+add wave -noupdate sim:/cont_75_tb/btn_reset
+add wave -noupdate sim:/cont_75_tb/dut/state
 add wave -noupdate -radix hex sim:/cont_75_tb/q_ms
 add wave -noupdate -radix hex sim:/cont_75_tb/q_s
+add wave -noupdate -binary sim:/cont_75_tb/hex0
+add wave -noupdate -binary sim:/cont_75_tb/hex1
+add wave -noupdate -binary sim:/cont_75_tb/hex2
+add wave -noupdate -binary sim:/cont_75_tb/hex3
 add wave -noupdate sim:/cont_75_tb/clk2
 add wave -noupdate sim:/cont_75_tb/clk3
 add wave -noupdate sim:/cont_75_tb/clk4
