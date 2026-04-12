@@ -58,16 +58,37 @@ architecture structural of cont_75 is
 	signal en_internal : std_logic := '0';
 	signal clr_internal : std_logic := '1';
 	
+	-- Divisor de clock 27MHz para 100Hz
+	signal div_count : unsigned(17 downto 0) := (others => '0');
+	signal clk_100hz : std_logic := '0';
+	
 	signal btn_play_pause_prev : std_logic := '0';
 	signal btn_reset_prev : std_logic := '0';
 	signal btn_play_pause_edge : std_logic;
 	signal btn_reset_edge : std_logic;
 
 begin
+	-- Divisor de clock: 27MHz / 270000 = 100Hz
+	process(CLK, RST)
+	begin
+		if RST = '1' then
+			div_count <= (others => '0');
+			clk_100hz <= '0';
+		elif rising_edge(CLK) then
+			if div_count = 269999 then  -- 270000 - 1 (0 a 269999 = 270000 ciclos)
+				div_count <= (others => '0');
+				clk_100hz <= '1';
+			else
+				div_count <= div_count + 1;
+				clk_100hz <= '0';
+			end if;
+		end if;
+	end process;
+
 	btn_play_pause_edge <= BTN_PLAY_PAUSE and (not btn_play_pause_prev);
 	btn_reset_edge <= BTN_RESET and (not btn_reset_prev);
 	
-	process(CLK, RST)
+	process(clk_100hz, RST)
 	begin
 		if RST = '1' then
 			state <= '0';
@@ -75,7 +96,7 @@ begin
 			clr_internal <= '1';
 			btn_play_pause_prev <= '0';
 			btn_reset_prev <= '0';
-		elsif rising_edge(CLK) then
+		elsif rising_edge(clk_100hz) then
 			btn_play_pause_prev <= BTN_PLAY_PAUSE;
 			btn_reset_prev <= BTN_RESET;
 			
@@ -106,7 +127,7 @@ begin
 
 	u1 : cont_4
 		port map (
-			CLK  => CLK,
+			CLK  => clk_100hz,
 			RST  => rst_sig_internal1,
 			EN   => en_internal,
 			CLR  => clr_internal,
@@ -116,7 +137,7 @@ begin
 
 	u2 : cont_4
 		port map (
-			CLK  => CLK,
+			CLK  => clk_100hz,
 			RST  => rst_sig_internal1,
 			EN   => clk2_sig,
 			CLR  => clr_internal,
@@ -126,7 +147,7 @@ begin
 
 	u3 : cont_4
 		port map (
-			CLK  => CLK,
+			CLK  => clk_100hz,
 			RST  => rst_sig_internal2,
 			EN   => clk3_sig,
 			CLR  => clr_internal,
@@ -136,7 +157,7 @@ begin
 
 	u4: cont_4
 		port map (
-			CLK  => CLK,
+			CLK  => clk_100hz,
 			RST  => rst_sig_internal2,
 			EN   => clk4_sig,
 			CLR  => clr_internal,
