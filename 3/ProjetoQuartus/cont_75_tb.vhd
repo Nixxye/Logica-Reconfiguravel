@@ -6,7 +6,7 @@ entity cont_75_tb is
 end entity cont_75_tb;
 
 architecture tb of cont_75_tb is
-    constant CLK_PERIOD : time := 1 ms;
+    constant CLK_PERIOD : time := 10 ms;
 
     signal clk : std_logic := '0';
     signal rst : std_logic := '0';
@@ -81,16 +81,16 @@ begin
         btn_play_pause <= '0';
         btn_reset <= '0';
         rst <= '0';
-        wait for 3 * CLK_PERIOD;
+        wait for 50 ms;
 
         rst <= '1';
-        wait for CLK_PERIOD;
+        wait for 50 ms;
         rst <= '0';
-        wait for 5 * CLK_PERIOD;
+        wait for 50 ms;
 
         -- Pressiona BTN_PLAY_PAUSE para iniciar contagem
         btn_play_pause <= '1';
-        wait for CLK_PERIOD;
+        wait for 50 ms;
         btn_play_pause <= '0';
         
         -- Deixa contando por alguns ciclos
@@ -98,19 +98,19 @@ begin
 
         -- Pressiona BTN_PLAY_PAUSE para pausar
         btn_play_pause <= '1';
-        wait for CLK_PERIOD;
+        wait for 50 ms;
         btn_play_pause <= '0';
-        wait for 10 * CLK_PERIOD;
+        wait for 50 ms;
 
         -- Pressiona BTN_RESET enquanto parado (deve zerar)
         btn_reset <= '1';
-        wait for CLK_PERIOD;
+        wait for 50 ms;
         btn_reset <= '0';
-        wait for 5 * CLK_PERIOD;
+        wait for 50 ms;
 
         -- Pressiona BTN_PLAY_PAUSE novamente para retomar contagem
         btn_play_pause <= '1';
-        wait for CLK_PERIOD;
+        wait for 50 ms;
         btn_play_pause <= '0';
         
         -- Deixa contando
