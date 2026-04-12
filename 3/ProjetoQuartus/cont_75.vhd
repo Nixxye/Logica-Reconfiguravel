@@ -12,13 +12,14 @@ entity cont_75 is
 		BTN_RESET : in std_logic;
 		Q_ms   : out std_logic_vector(7 downto 0);
 		Q_s    : out std_logic_vector(7 downto 0);
-		HEX0   : out std_logic_vector(6 downto 0);  -- centésimos unidade
-		HEX1   : out std_logic_vector(6 downto 0);  -- centésimos dezena
+		HEX0   : out std_logic_vector(6 downto 0);  -- centÃƒÂ©simos unidade
+		HEX1   : out std_logic_vector(6 downto 0);  -- centÃƒÂ©simos dezena
 		HEX2   : out std_logic_vector(6 downto 0);  -- segundos unidade
 		HEX3   : out std_logic_vector(6 downto 0);  -- segundos dezena
 		CLK2 : out std_logic;
 		CLK3 : out std_logic;
 		CLK4 : out std_logic;
+		CLK_100HZ : out std_logic;
 		RST_SIG1 : out std_logic;
 		RST_SIG2 : out std_logic
 	);
@@ -60,27 +61,38 @@ architecture structural of cont_75 is
 	
 	-- Divisor de clock 27MHz para 100Hz
 	signal div_count : unsigned(17 downto 0) := (others => '0');
-	signal clk_100hz : std_logic := '0';
+	signal clk_100hz_sig : std_logic := '0';
 	
 	signal btn_play_pause_prev : std_logic := '0';
 	signal btn_reset_prev : std_logic := '0';
 	signal btn_play_pause_edge : std_logic;
 	signal btn_reset_edge : std_logic;
+	
+	-- Sinais de enable combinados para os contadores
+	signal en_u1 : std_logic;
+	signal en_u2 : std_logic;
+	signal en_u3 : std_logic;
+	signal en_u4 : std_logic;
 
 begin
+	-- AtribuiÃ§Ãµes combinacionais dos enables
+	en_u1 <= en_internal and clk_100hz_sig;
+	en_u2 <= clk2_sig and clk_100hz_sig;
+	en_u3 <= clk3_sig and clk_100hz_sig;
+	en_u4 <= clk4_sig and clk_100hz_sig;
 	-- Divisor de clock: 27MHz / 270000 = 100Hz
 	process(CLK, RST)
 	begin
 		if RST = '1' then
 			div_count <= (others => '0');
-			clk_100hz <= '0';
-		elif rising_edge(CLK) then
-			if div_count = 269999 then  -- 270000 - 1 (0 a 269999 = 270000 ciclos)
+			clk_100hz_sig <= '0';
+		elsif rising_edge(CLK) then
+			if div_count = 2 then  -- 270000 - 1 (0 a 269999 = 270000 ciclos)
 				div_count <= (others => '0');
-				clk_100hz <= '1';
+				clk_100hz_sig <= '1';
 			else
 				div_count <= div_count + 1;
-				clk_100hz <= '0';
+				clk_100hz_sig <= '0';
 			end if;
 		end if;
 	end process;
@@ -88,7 +100,7 @@ begin
 	btn_play_pause_edge <= BTN_PLAY_PAUSE and (not btn_play_pause_prev);
 	btn_reset_edge <= BTN_RESET and (not btn_reset_prev);
 	
-	process(clk_100hz, RST)
+	process(CLK, RST)
 	begin
 		if RST = '1' then
 			state <= '0';
@@ -96,18 +108,18 @@ begin
 			clr_internal <= '1';
 			btn_play_pause_prev <= '0';
 			btn_reset_prev <= '0';
-		elsif rising_edge(clk_100hz) then
+		elsif rising_edge(CLK) then
 			btn_play_pause_prev <= BTN_PLAY_PAUSE;
 			btn_reset_prev <= BTN_RESET;
 			
-			-- Máquina de estados: '0' = STOPPED, '1' = COUNTING
+			-- MÃƒÂ¡quina de estados: '0' = STOPPED, '1' = COUNTING
 			if state = '0' then  -- STOPPED
 				en_internal <= '0';
-				-- Reset só funciona quando parado
+				-- Reset sÃƒÂ³ funciona quando parado
 				if btn_reset_edge = '1' then
 					clr_internal <= '1';  -- Zera o contador
 				end if;
-				-- Detecta transição para COUNTING
+				-- Detecta transiÃƒÂ§ÃƒÂ£o para COUNTING
 				if btn_play_pause_edge = '1' then
 					state <= '1';
 					clr_internal <= '0';  -- Libera contagem
@@ -116,8 +128,8 @@ begin
 			elsif state = '1' then  -- COUNTING
 				en_internal <= '1';
 				clr_internal <= '0';
-				-- BTN_RESET não funciona durante contagem
-				-- Detecta transição para STOPPED
+				-- BTN_RESET nÃƒÂ£o funciona durante contagem
+				-- Detecta transiÃƒÂ§ÃƒÂ£o para STOPPED
 				if btn_play_pause_edge = '1' then
 					state <= '0';
 				end if;
@@ -127,9 +139,9 @@ begin
 
 	u1 : cont_4
 		port map (
-			CLK  => clk_100hz,
+			CLK  => CLK,
 			RST  => rst_sig_internal1,
-			EN   => en_internal,
+			EN   => en_u1,
 			CLR  => clr_internal,
 			INPT => INPT(3 downto 0),
 			Q    => q1
@@ -137,9 +149,9 @@ begin
 
 	u2 : cont_4
 		port map (
-			CLK  => clk_100hz,
+			CLK  => CLK,
 			RST  => rst_sig_internal1,
-			EN   => clk2_sig,
+			EN   => en_u2,
 			CLR  => clr_internal,
 			INPT => INPT(7 downto 4),
 			Q    => q2
@@ -147,9 +159,9 @@ begin
 
 	u3 : cont_4
 		port map (
-			CLK  => clk_100hz,
+			CLK  => CLK,
 			RST  => rst_sig_internal2,
-			EN   => clk3_sig,
+			EN   => en_u3,
 			CLR  => clr_internal,
 			INPT => (others => '0'),
 			Q    => q3
@@ -157,9 +169,9 @@ begin
 
 	u4: cont_4
 		port map (
-			CLK  => clk_100hz,
+			CLK  => CLK,
 			RST  => rst_sig_internal2,
-			EN   => clk4_sig,
+			EN   => en_u4,
 			CLR  => clr_internal,
 			INPT => (others => '0'),
 			Q    => q4
@@ -203,6 +215,7 @@ begin
 	CLK2 <= clk2_sig;
 	CLK3 <= clk3_sig;
 	CLK4 <= clk4_sig;
+	CLK_100HZ <= clk_100hz_sig;
 
 	RST_SIG1 <= rst_sig_internal1;
 	RST_SIG2 <= rst_sig_internal2;

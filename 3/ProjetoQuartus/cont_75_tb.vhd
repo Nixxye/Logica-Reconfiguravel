@@ -6,7 +6,7 @@ entity cont_75_tb is
 end entity cont_75_tb;
 
 architecture tb of cont_75_tb is
-    constant CLK_PERIOD : time := 10 ms;
+    constant CLK_PERIOD : time := 1 ms;
 
     signal clk : std_logic := '0';
     signal rst : std_logic := '0';
@@ -21,6 +21,7 @@ architecture tb of cont_75_tb is
     signal clk2 : std_logic;
     signal clk3 : std_logic;
     signal clk4 : std_logic;
+    signal clk_100hz : std_logic;
     signal rst_sig1 : std_logic;
     signal rst_sig2 : std_logic;
 
@@ -59,6 +60,7 @@ begin
             CLK2 => clk2,
             CLK3 => clk3,
             CLK4 => clk4,
+            CLK_100HZ => clk_100hz,
             RST_SIG1 => rst_sig1,
             RST_SIG2 => rst_sig2
         );
@@ -81,16 +83,16 @@ begin
         btn_play_pause <= '0';
         btn_reset <= '0';
         rst <= '0';
-        wait for 50 ms;
+        wait for 3 * CLK_PERIOD;
 
         rst <= '1';
-        wait for 50 ms;
+        wait for CLK_PERIOD;
         rst <= '0';
-        wait for 50 ms;
+        wait for 5 * CLK_PERIOD;
 
         -- Pressiona BTN_PLAY_PAUSE para iniciar contagem
         btn_play_pause <= '1';
-        wait for 50 ms;
+        wait for CLK_PERIOD;
         btn_play_pause <= '0';
         
         -- Deixa contando por alguns ciclos
@@ -98,19 +100,19 @@ begin
 
         -- Pressiona BTN_PLAY_PAUSE para pausar
         btn_play_pause <= '1';
-        wait for 50 ms;
+        wait for CLK_PERIOD;
         btn_play_pause <= '0';
-        wait for 50 ms;
+        wait for 10 * CLK_PERIOD;
 
         -- Pressiona BTN_RESET enquanto parado (deve zerar)
         btn_reset <= '1';
-        wait for 50 ms;
+        wait for CLK_PERIOD;
         btn_reset <= '0';
-        wait for 50 ms;
+        wait for 5 * CLK_PERIOD;
 
         -- Pressiona BTN_PLAY_PAUSE novamente para retomar contagem
         btn_play_pause <= '1';
-        wait for 50 ms;
+        wait for CLK_PERIOD;
         btn_play_pause <= '0';
         
         -- Deixa contando

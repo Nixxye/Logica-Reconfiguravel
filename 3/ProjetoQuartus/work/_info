@@ -15,7 +15,7 @@ L4
 Vzk1ECPS39HE1W@S9z2ZiP3
 Z7 OV;C;10.1d;51
 31
-Z8 !s108 1776017024.467000
+Z8 !s108 1776037753.572000
 Z9 !s90 -reportprogress|300|-93|C:/Users/cjean/Documents/Git/Logica-Reconfiguravel/3/ProjetoQuartus/bcd_7seg.vhd|
 Z10 !s107 C:/Users/cjean/Documents/Git/Logica-Reconfiguravel/3/ProjetoQuartus/bcd_7seg.vhd|
 Z11 o-93 -O0
@@ -51,7 +51,7 @@ L5
 V?cdVbjB2Z8fWaI?a;YA]43
 R7
 31
-Z17 !s108 1776017024.413000
+Z17 !s108 1776037753.521000
 Z18 !s90 -reportprogress|300|-93|C:/Users/cjean/Documents/Git/Logica-Reconfiguravel/3/ProjetoQuartus/cont_4.vhd|
 Z19 !s107 C:/Users/cjean/Documents/Git/Logica-Reconfiguravel/3/ProjetoQuartus/cont_4.vhd|
 R11
@@ -76,7 +76,7 @@ R12
 !s100 9<VDoi^4KT4KKILoBz5NY2
 !i10b 1
 Econt_75
-Z20 w1775941670
+Z20 w1776036551
 R14
 R2
 R3
@@ -85,24 +85,24 @@ Z21 8C:/Users/cjean/Documents/Git/Logica-Reconfiguravel/3/ProjetoQuartus/cont_75
 Z22 FC:/Users/cjean/Documents/Git/Logica-Reconfiguravel/3/ProjetoQuartus/cont_75.vhd
 l0
 L5
-VU83Mfl<njCcmi2YP0nOT61
+V:E?VG9kGWc]0LjRR7>Vnz3
 R7
 31
-Z23 !s108 1776017024.522000
+Z23 !s108 1776037753.622000
 Z24 !s90 -reportprogress|300|-93|C:/Users/cjean/Documents/Git/Logica-Reconfiguravel/3/ProjetoQuartus/cont_75.vhd|
 Z25 !s107 C:/Users/cjean/Documents/Git/Logica-Reconfiguravel/3/ProjetoQuartus/cont_75.vhd|
 R11
 R12
-!s100 dcjWfkAPO;]Lfa2C=U1oM2
+!s100 BL=EVRIH7b=?8cDazejj^0
 !i10b 1
 Astructural
-Z26 DEx4 work 7 cont_75 0 22 U83Mfl<njCcmi2YP0nOT61
+Z26 DEx4 work 7 cont_75 0 22 :E?VG9kGWc]0LjRR7>Vnz3
 R14
 R2
 R3
-l66
-L31
-VS^jM[SZ^3OM5XB[zoSQ>k0
+l77
+L32
+VK5E1OM5e?fHZoa5lgD6B71
 R7
 31
 R23
@@ -110,10 +110,10 @@ R24
 R25
 R11
 R12
-!s100 []6a3g[`^C@emiD>IY4X=1
+!s100 gT5zO]QeRBCR[F=fjEGcI0
 !i10b 1
 Econt_75_tb
-Z27 w1776016957
+Z27 w1776037635
 R14
 R2
 R3
@@ -127,7 +127,7 @@ VGbR>]ZRFGYd9N6Z:1iJCz3
 R7
 31
 !i10b 1
-Z30 !s108 1776017024.577000
+Z30 !s108 1776037753.674000
 Z31 !s90 -reportprogress|300|-93|C:/Users/cjean/Documents/Git/Logica-Reconfiguravel/3/ProjetoQuartus/cont_75_tb.vhd|
 Z32 !s107 C:/Users/cjean/Documents/Git/Logica-Reconfiguravel/3/ProjetoQuartus/cont_75_tb.vhd|
 R11
@@ -138,10 +138,10 @@ R14
 R2
 R3
 DEx4 work 10 cont_75_tb 0 22 GbR>]ZRFGYd9N6Z:1iJCz3
-l44
+l45
 L8
-VHDRj7DP?N;o9M6LaQg70>3
-!s100 gI]ga>^86YD<^o08_A6`F2
+V9[@f1Mo8bSN@lUHXDzzTb0
+!s100 b1gJmjYR?d8AG1A_JN2:@3
 R7
 31
 !i10b 1

@@ -89,6 +89,7 @@ add wave -noupdate -binary sim:/cont_75_tb/hex3
 add wave -noupdate sim:/cont_75_tb/clk2
 add wave -noupdate sim:/cont_75_tb/clk3
 add wave -noupdate sim:/cont_75_tb/clk4
+add wave -noupdate sim:/cont_75_tb/clk_100hz
 add wave -noupdate sim:/cont_75_tb/rst_sig1
 add wave -noupdate sim:/cont_75_tb/rst_sig2
 configure wave -namecolwidth 120
