@@ -62,8 +62,8 @@ set_location_assignment PIN_N23 -to BTN_RESET
 set_location_assignment PIN_D13 -to CLK
 set_location_assignment PIN_H8 -to CLK2
 set_location_assignment PIN_P4 -to CLK4
-set_location_assignment PIN_N26 -to CLR
-set_location_assignment PIN_N25 -to EN
+set_location_assignment PIN_H12 -to CLR
+set_location_assignment PIN_V7 -to EN
 set_location_assignment PIN_AF10 -to HEX0[0]
 set_location_assignment PIN_AB12 -to HEX0[1]
 set_location_assignment PIN_AC12 -to HEX0[2]
@@ -96,7 +96,7 @@ set_location_assignment PIN_W23 -to Q_ms[0]
 set_location_assignment PIN_AF23 -to Q_ms[1]
 set_location_assignment PIN_N9 -to Q_ms[2]
 set_location_assignment PIN_K16 -to Q_ms[3]
-set_location_assignment PIN_T20 -to Q_ms[4]
+set_location_assignment PIN_W21 -to Q_ms[4]
 set_location_assignment PIN_B22 -to Q_ms[5]
 set_location_assignment PIN_AF7 -to Q_ms[6]
 set_location_assignment PIN_K3 -to Q_ms[7]
@@ -107,7 +107,7 @@ set_location_assignment PIN_V24 -to Q_s[3]
 set_location_assignment PIN_AD5 -to Q_s[4]
 set_location_assignment PIN_L4 -to Q_s[5]
 set_location_assignment PIN_U12 -to Q_s[6]
-set_location_assignment PIN_U24 -to Q_s[7]
+set_location_assignment PIN_Y26 -to Q_s[7]
 set_location_assignment PIN_G2 -to RST
 set_location_assignment PIN_G1 -to RST_SIG1
 set_location_assignment PIN_F2 -to RST_SIG2
