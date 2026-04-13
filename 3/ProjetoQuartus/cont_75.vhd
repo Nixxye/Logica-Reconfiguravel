@@ -89,7 +89,7 @@ begin
 			clk_enable_count <= (others => '0');
 			clk_100hz_en <= '0';
 		elsif rising_edge(CLK) then
-			if clk_enable_count = 3 then  -- 0 a 269999 = 270000 ciclos
+			if clk_enable_count = 100000 then  -- 0 a 269999 = 270000 ciclos
 				clk_enable_count <= (others => '0');
 				clk_100hz_en <= '1';
 			else
@@ -207,13 +207,13 @@ begin
 	Q_ms <= q2 & q1;
 	Q_s  <= q4 & q3;
 
-	rst_sig_internal1 <= '1' when (RST = '1' or (q2 & q1) = "01100100") else '0';
-	rst_sig_internal2 <= '1' when (RST = '1' or (q4 & q3) = "00111100") else '0';
+	rst_sig_internal1 <= '1' when (RST = '1' or (q2 & q1) = "10011001") else '0';
+	rst_sig_internal2 <= '1' when (RST = '1' or (q4 & q3) = "01011001") else '0';
 
-	clk2_sig <= '1' when (RST = '0' and en_internal = '1' and clr_internal = '0' and q1 = "1111") else '0';
-	clk3_sig <= '1' when (RST = '0' and en_internal = '1' and clr_internal = '0' and q2 & q1 = "01100011") else '0';
-	clk4_sig <= '1' when (RST = '0' and en_internal = '1' and clr_internal = '0' and q3 & q2 & q1 = "111101100011") else '0';
-
+	clk2_sig <= '1' when (RST = '0' and en_internal = '1' and clr_internal = '0' and q1 = "1001") else '0';
+	clk3_sig <= '1' when (RST = '0' and en_internal = '1' and clr_internal = '0' and q2 & q1 = "10011001") else '0';
+	clk4_sig <= '1' when (RST = '0' and en_internal = '1' and clr_internal = '0' and q3 = "1001") else '0';
+	 
 	CLK2 <= clk2_sig;
 	CLK3 <= clk3_sig;
 	CLK4 <= clk4_sig;
