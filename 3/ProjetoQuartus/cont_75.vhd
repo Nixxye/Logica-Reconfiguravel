@@ -59,9 +59,9 @@ architecture structural of cont_75 is
 	signal en_internal : std_logic := '0';
 	signal clr_internal : std_logic := '1';
 	
-	-- Divisor de clock 27MHz para 100Hz
-	signal div_count : unsigned(17 downto 0) := (others => '0');
-	signal clk_100hz_sig : std_logic := '0';
+	-- Clock Enable de 100Hz em vez de divisor de clock
+	signal clk_enable_count : unsigned(17 downto 0) := (others => '0');
+	signal clk_100hz_en : std_logic := '0';
 	
 	signal btn_play_pause_prev : std_logic := '0';
 	signal btn_reset_prev : std_logic := '0';
@@ -75,24 +75,26 @@ architecture structural of cont_75 is
 	signal en_u4 : std_logic;
 
 begin
-	-- AtribuiÃ§Ãµes combinacionais dos enables
-	en_u1 <= en_internal and clk_100hz_sig;
-	en_u2 <= clk2_sig and clk_100hz_sig;
-	en_u3 <= clk3_sig and clk_100hz_sig;
-	en_u4 <= clk4_sig and clk_100hz_sig;
-	-- Divisor de clock: 27MHz / 270000 = 100Hz
+	-- Atribuições combinacionais dos enables
+	en_u1 <= en_internal and clk_100hz_en;
+	en_u2 <= clk2_sig and clk_100hz_en;
+	en_u3 <= clk3_sig and clk_100hz_en;
+	en_u4 <= clk4_sig and clk_100hz_en;
+	
+	-- Clock Enable de 100Hz: 27MHz / 270000 = 100Hz
+	-- Este sinal pulsa por 1 ciclo a cada 270000 ciclos do clock principal
 	process(CLK, RST)
 	begin
 		if RST = '1' then
-			div_count <= (others => '0');
-			clk_100hz_sig <= '0';
+			clk_enable_count <= (others => '0');
+			clk_100hz_en <= '0';
 		elsif rising_edge(CLK) then
-			if div_count = 2 then  -- 270000 - 1 (0 a 269999 = 270000 ciclos)
-				div_count <= (others => '0');
-				clk_100hz_sig <= '1';
+			if clk_enable_count = 3 then  -- 0 a 269999 = 270000 ciclos
+				clk_enable_count <= (others => '0');
+				clk_100hz_en <= '1';
 			else
-				div_count <= div_count + 1;
-				clk_100hz_sig <= '0';
+				clk_enable_count <= clk_enable_count + 1;
+				clk_100hz_en <= '0';
 			end if;
 		end if;
 	end process;
@@ -215,7 +217,7 @@ begin
 	CLK2 <= clk2_sig;
 	CLK3 <= clk3_sig;
 	CLK4 <= clk4_sig;
-	CLK_100HZ <= clk_100hz_sig;
+	CLK_100HZ <= clk_100hz_en;
 
 	RST_SIG1 <= rst_sig_internal1;
 	RST_SIG2 <= rst_sig_internal2;

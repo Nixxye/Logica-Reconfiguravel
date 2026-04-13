@@ -1,5 +1,5 @@
 Analysis & Synthesis report for cont_75
-Sun Apr 12 20:47:29 2026
+Mon Apr 13 15:07:22 2026
 Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
 
 
@@ -47,11 +47,11 @@ applicable agreement for further details.
 +--------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                         ;
 +------------------------------------+-------------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Sun Apr 12 20:47:29 2026           ;
+; Analysis & Synthesis Status        ; Successful - Mon Apr 13 15:07:22 2026           ;
 ; Quartus II 64-Bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition ;
 ; Revision Name                      ; cont_75                                         ;
 ; Top-level Entity Name              ; cont_75                                         ;
-; Family                             ; Cyclone IV E                                    ;
+; Family                             ; Cyclone II                                      ;
 ; Total logic elements               ; 92                                              ;
 ;     Total combinational functions  ; 89                                              ;
 ;     Dedicated logic registers      ; 40                                              ;
@@ -69,9 +69,9 @@ applicable agreement for further details.
 +----------------------------------------------------------------------------+--------------------+--------------------+
 ; Option                                                                     ; Setting            ; Default Value      ;
 +----------------------------------------------------------------------------+--------------------+--------------------+
-; Device                                                                     ; EP4CE22F17C6       ;                    ;
+; Device                                                                     ; EP2C35F672C6       ;                    ;
 ; Top-level entity name                                                      ; cont_75            ; cont_75            ;
-; Family name                                                                ; Cyclone IV E       ; Cyclone IV GX      ;
+; Family name                                                                ; Cyclone II         ; Cyclone IV GX      ;
 ; Use smart compilation                                                      ; Off                ; Off                ;
 ; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation ; On                 ; On                 ;
 ; Enable compact report table                                                ; Off                ; Off                ;
@@ -110,14 +110,12 @@ applicable agreement for further details.
 ; Perform WYSIWYG Primitive Resynthesis                                      ; Off                ; Off                ;
 ; Auto ROM Replacement                                                       ; On                 ; On                 ;
 ; Auto RAM Replacement                                                       ; On                 ; On                 ;
-; Auto DSP Block Replacement                                                 ; On                 ; On                 ;
 ; Auto Shift Register Replacement                                            ; Auto               ; Auto               ;
 ; Allow Shift Register Merging across Hierarchies                            ; Auto               ; Auto               ;
 ; Auto Clock Enable Replacement                                              ; On                 ; On                 ;
 ; Strict RAM Replacement                                                     ; Off                ; Off                ;
 ; Allow Synchronous Control Signals                                          ; On                 ; On                 ;
 ; Force Use of Synchronous Clear Signals                                     ; Off                ; Off                ;
-; Auto RAM Block Balancing                                                   ; On                 ; On                 ;
 ; Auto RAM to Logic Cell Conversion                                          ; Off                ; Off                ;
 ; Auto Resource Sharing                                                      ; Off                ; Off                ;
 ; Allow Any RAM Size For Recognition                                         ; Off                ; Off                ;
@@ -125,7 +123,7 @@ applicable agreement for further details.
 ; Allow Any Shift Register Size For Recognition                              ; Off                ; Off                ;
 ; Use LogicLock Constraints during Resource Balancing                        ; On                 ; On                 ;
 ; Ignore translate_off and synthesis_off directives                          ; Off                ; Off                ;
-; Timing-Driven Synthesis                                                    ; On                 ; On                 ;
+; Timing-Driven Synthesis                                                    ; Off                ; Off                ;
 ; Report Parameter Settings                                                  ; On                 ; On                 ;
 ; Report Source Assignments                                                  ; On                 ; On                 ;
 ; Report Connectivity Checks                                                 ; On                 ; On                 ;
@@ -173,34 +171,34 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +----------------------------------+-----------------+-----------------------+----------------------------------------------------------------------------------+---------+
 
 
-+---------------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary             ;
-+---------------------------------------------+-----------+
-; Resource                                    ; Usage     ;
-+---------------------------------------------+-----------+
-; Estimated Total logic elements              ; 92        ;
-;                                             ;           ;
-; Total combinational functions               ; 89        ;
-; Logic element usage by number of LUT inputs ;           ;
-;     -- 4 input functions                    ; 49        ;
-;     -- 3 input functions                    ; 12        ;
-;     -- <=2 input functions                  ; 28        ;
-;                                             ;           ;
-; Logic elements by mode                      ;           ;
-;     -- normal mode                          ; 72        ;
-;     -- arithmetic mode                      ; 17        ;
-;                                             ;           ;
-; Total registers                             ; 40        ;
-;     -- Dedicated logic registers            ; 40        ;
-;     -- I/O registers                        ; 0         ;
-;                                             ;           ;
-; I/O pins                                    ; 56        ;
-; Embedded Multiplier 9-bit elements          ; 0         ;
-; Maximum fan-out node                        ; CLK~input ;
-; Maximum fan-out                             ; 40        ;
-; Total fan-out                               ; 541       ;
-; Average fan-out                             ; 2.24      ;
-+---------------------------------------------+-----------+
++-----------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary         ;
++---------------------------------------------+-------+
+; Resource                                    ; Usage ;
++---------------------------------------------+-------+
+; Estimated Total logic elements              ; 92    ;
+;                                             ;       ;
+; Total combinational functions               ; 89    ;
+; Logic element usage by number of LUT inputs ;       ;
+;     -- 4 input functions                    ; 50    ;
+;     -- 3 input functions                    ; 12    ;
+;     -- <=2 input functions                  ; 27    ;
+;                                             ;       ;
+; Logic elements by mode                      ;       ;
+;     -- normal mode                          ; 72    ;
+;     -- arithmetic mode                      ; 17    ;
+;                                             ;       ;
+; Total registers                             ; 40    ;
+;     -- Dedicated logic registers            ; 40    ;
+;     -- I/O registers                        ; 0     ;
+;                                             ;       ;
+; I/O pins                                    ; 56    ;
+; Embedded Multiplier 9-bit elements          ; 0     ;
+; Maximum fan-out node                        ; CLK   ;
+; Maximum fan-out                             ; 40    ;
+; Total fan-out                               ; 487   ;
+; Average fan-out                             ; 2.63  ;
++---------------------------------------------+-------+
 
 
 +---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -309,7 +307,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Analysis & Synthesis
     Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
-    Info: Processing started: Sun Apr 12 20:47:27 2026
+    Info: Processing started: Mon Apr 13 15:07:21 2026
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off cont_75 -c cont_75
 Warning (20028): Parallel compilation is not licensed and has been disabled
 Info (12021): Found 2 design units, including 1 entities, in source file bcd_7seg.vhd
@@ -330,7 +328,6 @@ Warning (10492): VHDL Process Statement warning at cont_4.vhd(19): signal "INPT"
 Info (12128): Elaborating entity "bcd_7seg" for hierarchy "bcd_7seg:disp0"
 Info (13000): Registers with preset signals will power-up high
 Info (13003): DEV_CLRn pin will set, and not reset, register with preset signal due to NOT Gate Push-Back
-Info (286030): Timing-Driven Synthesis is running
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
 Warning (21074): Design contains 2 input pin(s) that do not drive logic
@@ -341,9 +338,9 @@ Info (21057): Implemented 148 device resources after synthesis - the final resou
     Info (21059): Implemented 50 output pins
     Info (21061): Implemented 92 logic cells
 Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 6 warnings
-    Info: Peak virtual memory: 4638 megabytes
-    Info: Processing ended: Sun Apr 12 20:47:29 2026
-    Info: Elapsed time: 00:00:02
+    Info: Peak virtual memory: 4651 megabytes
+    Info: Processing ended: Mon Apr 13 15:07:22 2026
+    Info: Elapsed time: 00:00:01
     Info: Total CPU time (on all processors): 00:00:01
 
 
