@@ -4,7 +4,7 @@ K3
 cModel Technology
 Z0 dC:\Users\cjean\Documents\Git\Logica-Reconfiguravel\3\ProjetoQuartus\simulation\modelsim
 Ebcd_7seg
-Z1 w1775940213
+Z1 w1776110906
 Z2 DPx3 std 6 textio 0 22 5>J:;AW>W0[[dW0I6EN1Q0
 Z3 DPx4 ieee 14 std_logic_1164 0 22 5=aWaoGZSMWIcH0i^f`XF1
 Z4 dC:\Users\cjean\Documents\Git\Logica-Reconfiguravel\3\ProjetoQuartus\simulation\modelsim
@@ -15,7 +15,7 @@ L4
 VbaBzU`JW[l^VX:@h@0:>[3
 Z7 OV;C;10.1d;51
 31
-Z8 !s108 1776103664.940000
+Z8 !s108 1776113474.663000
 Z9 !s90 -reportprogress|300|-93|-work|work|C:/Users/cjean/Documents/Git/Logica-Reconfiguravel/3/ProjetoQuartus/bcd_7seg.vhd|
 Z10 !s107 C:/Users/cjean/Documents/Git/Logica-Reconfiguravel/3/ProjetoQuartus/bcd_7seg.vhd|
 Z11 o-93 -work work -O0
@@ -28,7 +28,7 @@ R3
 DEx4 work 8 bcd_7seg 0 22 baBzU`JW[l^VX:@h@0:>[3
 l12
 L11
-VI>hdGK0;ik>KhZFzX]@KU1
+VgdROIR`<XnJa7DWS[RYf<1
 R7
 31
 R8
@@ -36,7 +36,7 @@ R9
 R10
 R11
 R12
-!s100 L?R9=JA_J0g[2S?f?;fS22
+!s100 heoA<ZQ<OB0?hBQUg`R]z1
 !i10b 1
 Econt_4
 Z13 w1775605707
@@ -53,7 +53,7 @@ VY9UP;MSF5<9K]RJ0R[YU41
 R7
 31
 !i10b 1
-Z17 !s108 1776103665.059000
+Z17 !s108 1776113474.771000
 Z18 !s90 -reportprogress|300|-93|-work|work|C:/Users/cjean/Documents/Git/Logica-Reconfiguravel/3/ProjetoQuartus/cont_4.vhd|
 Z19 !s107 C:/Users/cjean/Documents/Git/Logica-Reconfiguravel/3/ProjetoQuartus/cont_4.vhd|
 R11
@@ -76,7 +76,7 @@ R19
 R11
 R12
 Econt_75
-Z20 w1776103273
+Z20 w1776113443
 R14
 R2
 R3
@@ -85,24 +85,24 @@ Z21 8C:/Users/cjean/Documents/Git/Logica-Reconfiguravel/3/ProjetoQuartus/cont_75
 Z22 FC:/Users/cjean/Documents/Git/Logica-Reconfiguravel/3/ProjetoQuartus/cont_75.vhd
 l0
 L5
-VT0jgcAZQk^=52bbTcBRMf0
+VPT^noMge`Cf?AD2@:TIj]3
 R7
 31
-Z23 !s108 1776103664.995000
+Z23 !s108 1776113474.714000
 Z24 !s90 -reportprogress|300|-93|-work|work|C:/Users/cjean/Documents/Git/Logica-Reconfiguravel/3/ProjetoQuartus/cont_75.vhd|
 Z25 !s107 C:/Users/cjean/Documents/Git/Logica-Reconfiguravel/3/ProjetoQuartus/cont_75.vhd|
 R11
 R12
-!s100 BL=EVRIH7b=?8cDazejj^0
+!s100 1ZV1K2c]2J2an;8boDMWo0
 !i10b 1
 Astructural
-DEx4 work 7 cont_75 0 22 T0jgcAZQk^=52bbTcBRMf0
 R14
 R2
 R3
+DEx4 work 7 cont_75 0 22 PT^noMge`Cf?AD2@:TIj]3
 l77
 L32
-Vi3MHWC8][Lz_SgiN3]X<Y3
+VM1>`d@4KUmLJ^EWETk6Io0
 R7
 31
 R23
@@ -110,5 +110,5 @@ R24
 R25
 R11
 R12
-!s100 _D3;lgm1`5_d:Ag:kk4Xh2
+!s100 [@gjWz3HIb1:_XBH9i`D;3
 !i10b 1

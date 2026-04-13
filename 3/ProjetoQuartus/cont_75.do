@@ -81,7 +81,11 @@ add wave -noupdate sim:/cont_75_tb/btn_play_pause
 add wave -noupdate sim:/cont_75_tb/btn_reset
 add wave -noupdate sim:/cont_75_tb/dut/state
 add wave -noupdate -radix hex sim:/cont_75_tb/q_ms
+add wave -noupdate -radix decimal sim:/cont_75_tb/q1
+add wave -noupdate -radix decimal sim:/cont_75_tb/q2
 add wave -noupdate -radix hex sim:/cont_75_tb/q_s
+add wave -noupdate -radix decimal sim:/cont_75_tb/q3
+add wave -noupdate -radix decimal sim:/cont_75_tb/q4
 add wave -noupdate -binary sim:/cont_75_tb/hex0
 add wave -noupdate -binary sim:/cont_75_tb/hex1
 add wave -noupdate -binary sim:/cont_75_tb/hex2

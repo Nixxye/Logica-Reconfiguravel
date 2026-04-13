@@ -14,6 +14,10 @@ architecture tb of cont_75_tb is
     signal btn_reset : std_logic := '0';
     signal q_ms   : std_logic_vector(7 downto 0);
     signal q_s    : std_logic_vector(7 downto 0);
+    signal q1   : std_logic_vector(3 downto 0);
+    signal q2   : std_logic_vector(3 downto 0);
+    signal q3   : std_logic_vector(3 downto 0);
+    signal q4   : std_logic_vector(3 downto 0);
     signal hex0   : std_logic_vector(6 downto 0);
     signal hex1   : std_logic_vector(6 downto 0);
     signal hex2   : std_logic_vector(6 downto 0);
@@ -53,6 +57,10 @@ begin
             BTN_RESET => btn_reset,
             Q_ms   => q_ms,
             Q_s    => q_s,
+            Q1 => q1,
+            Q2 => q2,
+            Q3 => q3,
+            Q4 => q4,
             HEX0   => hex0,
             HEX1   => hex1,
             HEX2   => hex2,

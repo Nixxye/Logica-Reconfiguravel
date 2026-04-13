@@ -12,8 +12,12 @@ entity cont_75 is
 		BTN_RESET : in std_logic;
 		Q_ms   : out std_logic_vector(7 downto 0);
 		Q_s    : out std_logic_vector(7 downto 0);
-		HEX0   : out std_logic_vector(6 downto 0);  -- centÃƒÂ©simos unidade
-		HEX1   : out std_logic_vector(6 downto 0);  -- centÃƒÂ©simos dezena
+		Q1 : out std_logic_vector(3 downto 0);
+		Q2 : out std_logic_vector(3 downto 0);
+		Q3 : out std_logic_vector(3 downto 0);
+		Q4 : out std_logic_vector(3 downto 0);
+		HEX0   : out std_logic_vector(6 downto 0);  -- centésimos unidade
+		HEX1   : out std_logic_vector(6 downto 0);  -- centésimos dezena
 		HEX2   : out std_logic_vector(6 downto 0);  -- segundos unidade
 		HEX3   : out std_logic_vector(6 downto 0);  -- segundos dezena
 		CLK2 : out std_logic;
@@ -24,10 +28,6 @@ entity cont_75 is
 		RST_SIG2 : out std_logic
 	);
 end entity cont_75;
-
-library ieee;
-use ieee.std_logic_1164.all;
-use ieee.numeric_std.all;
 
 architecture structural of cont_75 is
 	component cont_4 is
@@ -47,13 +47,13 @@ architecture structural of cont_75 is
 
 	constant INPT : std_logic_vector(7 downto 0) := "00000000";
 
-	signal q1, q2, q3, q4  : std_logic_vector(3 downto 0);
+	signal sig_q1, sig_q2, sig_q3, sig_q4  : std_logic_vector(3 downto 0);
 
 	signal clk2_sig : std_logic;
 	signal clk3_sig : std_logic;
 	signal clk4_sig : std_logic;
 
-	signal rst_sig_internal1, rst_sig_internal2  : std_logic;
+	signal rst_sig_internal1, rst_sig_internal2, rst_sig_internal3, rst_sig_internal4  : std_logic;
 	
 	signal state : std_logic := '0';  -- '0' = STOPPED, '1' = COUNTING
 	signal en_internal : std_logic := '0';
@@ -75,7 +75,7 @@ architecture structural of cont_75 is
 	signal en_u4 : std_logic;
 
 begin
-	-- Atribuições combinacionais dos enables
+	-- AtribuiÃ§Ãµes combinacionais dos enables
 	en_u1 <= en_internal and clk_100hz_en;
 	en_u2 <= clk2_sig and clk_100hz_en;
 	en_u3 <= clk3_sig and clk_100hz_en;
@@ -89,7 +89,7 @@ begin
 			clk_enable_count <= (others => '0');
 			clk_100hz_en <= '0';
 		elsif rising_edge(CLK) then
-			if clk_enable_count = 100000 then  -- 0 a 269999 = 270000 ciclos
+			if clk_enable_count = 2 then  -- 0 a 269999 = 270000 ciclos
 				clk_enable_count <= (others => '0');
 				clk_100hz_en <= '1';
 			else
@@ -114,14 +114,14 @@ begin
 			btn_play_pause_prev <= BTN_PLAY_PAUSE;
 			btn_reset_prev <= BTN_RESET;
 			
-			-- MÃƒÂ¡quina de estados: '0' = STOPPED, '1' = COUNTING
+			-- MÃƒÆ’Ã‚Â¡quina de estados: '0' = STOPPED, '1' = COUNTING
 			if state = '0' then  -- STOPPED
 				en_internal <= '0';
-				-- Reset sÃƒÂ³ funciona quando parado
+				-- Reset sÃƒÆ’Ã‚Â³ funciona quando parado
 				if btn_reset_edge = '1' then
 					clr_internal <= '1';  -- Zera o contador
 				end if;
-				-- Detecta transiÃƒÂ§ÃƒÂ£o para COUNTING
+				-- Detecta transiÃƒÆ’Ã‚Â§ÃƒÆ’Ã‚Â£o para COUNTING
 				if btn_play_pause_edge = '1' then
 					state <= '1';
 					clr_internal <= '0';  -- Libera contagem
@@ -130,8 +130,8 @@ begin
 			elsif state = '1' then  -- COUNTING
 				en_internal <= '1';
 				clr_internal <= '0';
-				-- BTN_RESET nÃƒÂ£o funciona durante contagem
-				-- Detecta transiÃƒÂ§ÃƒÂ£o para STOPPED
+				-- BTN_RESET nÃƒÆ’Ã‚Â£o funciona durante contagem
+				-- Detecta transiÃƒÆ’Ã‚Â§ÃƒÆ’Ã‚Â£o para STOPPED
 				if btn_play_pause_edge = '1' then
 					state <= '0';
 				end if;
@@ -146,73 +146,79 @@ begin
 			EN   => en_u1,
 			CLR  => clr_internal,
 			INPT => INPT(3 downto 0),
-			Q    => q1
+			Q    => sig_q1
 		);
 
 	u2 : cont_4
 		port map (
 			CLK  => CLK,
-			RST  => rst_sig_internal1,
+			RST  => rst_sig_internal2,
 			EN   => en_u2,
 			CLR  => clr_internal,
 			INPT => INPT(7 downto 4),
-			Q    => q2
+			Q    => sig_q2
 		);
 
 	u3 : cont_4
 		port map (
 			CLK  => CLK,
-			RST  => rst_sig_internal2,
+			RST  => rst_sig_internal3,
 			EN   => en_u3,
 			CLR  => clr_internal,
 			INPT => (others => '0'),
-			Q    => q3
+			Q    => sig_q3
 		);
 
 	u4: cont_4
 		port map (
 			CLK  => CLK,
-			RST  => rst_sig_internal2,
+			RST  => rst_sig_internal4,
 			EN   => en_u4,
 			CLR  => clr_internal,
 			INPT => (others => '0'),
-			Q    => q4
+			Q    => sig_q4
 		);
 
 	-- Decodificadores BCD para 7-segmentos
 	disp0 : bcd_7seg
 		port map (
-			BCD => q1,
+			BCD => sig_q1,
 			SEG => HEX0
 		);
 
 	disp1 : bcd_7seg
 		port map (
-			BCD => q2,
+			BCD => sig_q2,
 			SEG => HEX1
 		);
 
 	disp2 : bcd_7seg
 		port map (
-			BCD => q3,
+			BCD => sig_q3,
 			SEG => HEX2
 		);
 
 	disp3 : bcd_7seg
 		port map (
-			BCD => q4,
+			BCD => sig_q4,
 			SEG => HEX3
 		);
 
-	Q_ms <= q2 & q1;
-	Q_s  <= q4 & q3;
+	Q_ms <= sig_q2 & sig_q1;
+	Q_s  <= sig_q4 & sig_q3;
+	Q1 <= sig_q1;
+	Q2 <= sig_q2;
+	Q3 <= sig_q3;
+	Q4 <= sig_q4;
 
-	rst_sig_internal1 <= '1' when (RST = '1' or (q2 & q1) = "10011001") else '0';
-	rst_sig_internal2 <= '1' when (RST = '1' or (q4 & q3) = "01011001") else '0';
+	rst_sig_internal1 <= '1' when (RST = '1' or (sig_q1) = "1010") else '0';
+	rst_sig_internal2 <= '1' when (RST = '1' or (sig_q2 & sig_q1) = "10101010") else '0';
+	rst_sig_internal3 <= '1' when (RST = '1' or (sig_q3) = "1010") else '0';
+	rst_sig_internal4 <= '1' when (RST = '1' or (sig_q4 & sig_q3 & sig_q2 & sig_q1) = "1010101010101010") else '0';
 
-	clk2_sig <= '1' when (RST = '0' and en_internal = '1' and clr_internal = '0' and q1 = "1001") else '0';
-	clk3_sig <= '1' when (RST = '0' and en_internal = '1' and clr_internal = '0' and q2 & q1 = "10011001") else '0';
-	clk4_sig <= '1' when (RST = '0' and en_internal = '1' and clr_internal = '0' and q3 = "1001") else '0';
+	clk2_sig <= '1' when (RST = '0' and en_internal = '1' and clr_internal = '0' and sig_q1 = "1001") else '0';
+	clk3_sig <= '1' when (RST = '0' and en_internal = '1' and clr_internal = '0' and sig_q2 & sig_q1 = "10011001") else '0';
+	clk4_sig <= '1' when (RST = '0' and en_internal = '1' and clr_internal = '0' and sig_q3 & sig_q2 & sig_q1 = "100110011001") else '0';
 	 
 	CLK2 <= clk2_sig;
 	CLK3 <= clk3_sig;
