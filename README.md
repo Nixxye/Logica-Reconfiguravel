@@ -1,5 +1,6 @@
 # Logica-Reconfiguravel
+Projeto dos alunos:
+Emerson Felipe da Costa Aguiar
+Jean Carlos do Nascimento Cunha
 
-cd C:/Users/cjean/Documents/Git/Logica-Reconfiguravel/3/ProjetoQuartus
-
-CLK com período de 10 ms
+Imagens da simulação estão na pasta imagens
