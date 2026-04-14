@@ -60,7 +60,7 @@ architecture structural of cont_75 is
 	signal clr_internal : std_logic := '1';
 	
 	-- Clock Enable de 100Hz em vez de divisor de clock
-	signal clk_enable_count : unsigned(17 downto 0) := (others => '0');
+	signal clk_enable_count : unsigned(18 downto 0) := (others => '0');
 	signal clk_100hz_en : std_logic := '0';
 	
 	signal btn_play_pause_prev : std_logic := '0';
@@ -75,21 +75,18 @@ architecture structural of cont_75 is
 	signal en_u4 : std_logic;
 
 begin
-	-- AtribuiÃ§Ãµes combinacionais dos enables
 	en_u1 <= en_internal and clk_100hz_en;
 	en_u2 <= clk2_sig and clk_100hz_en;
 	en_u3 <= clk3_sig and clk_100hz_en;
 	en_u4 <= clk4_sig and clk_100hz_en;
 	
-	-- Clock Enable de 100Hz: 27MHz / 270000 = 100Hz
-	-- Este sinal pulsa por 1 ciclo a cada 270000 ciclos do clock principal
 	process(CLK, RST)
 	begin
 		if RST = '1' then
 			clk_enable_count <= (others => '0');
 			clk_100hz_en <= '0';
 		elsif rising_edge(CLK) then
-			if clk_enable_count = 2 then  -- 0 a 269999 = 270000 ciclos
+			if clk_enable_count = 2 then
 				clk_enable_count <= (others => '0');
 				clk_100hz_en <= '1';
 			else
@@ -114,14 +111,11 @@ begin
 			btn_play_pause_prev <= BTN_PLAY_PAUSE;
 			btn_reset_prev <= BTN_RESET;
 			
-			-- MÃƒÆ’Ã‚Â¡quina de estados: '0' = STOPPED, '1' = COUNTING
 			if state = '0' then  -- STOPPED
 				en_internal <= '0';
-				-- Reset sÃƒÆ’Ã‚Â³ funciona quando parado
 				if btn_reset_edge = '1' then
 					clr_internal <= '1';  -- Zera o contador
 				end if;
-				-- Detecta transiÃƒÆ’Ã‚Â§ÃƒÆ’Ã‚Â£o para COUNTING
 				if btn_play_pause_edge = '1' then
 					state <= '1';
 					clr_internal <= '0';  -- Libera contagem
@@ -130,8 +124,6 @@ begin
 			elsif state = '1' then  -- COUNTING
 				en_internal <= '1';
 				clr_internal <= '0';
-				-- BTN_RESET nÃƒÆ’Ã‚Â£o funciona durante contagem
-				-- Detecta transiÃƒÆ’Ã‚Â§ÃƒÆ’Ã‚Â£o para STOPPED
 				if btn_play_pause_edge = '1' then
 					state <= '0';
 				end if;

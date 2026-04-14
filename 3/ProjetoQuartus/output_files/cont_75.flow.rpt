@@ -1,5 +1,5 @@
 Flow report for cont_75
-Mon Apr 13 17:51:03 2026
+Mon Apr 13 18:26:27 2026
 Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
 
 
@@ -40,17 +40,17 @@ applicable agreement for further details.
 +--------------------------------------------------------------------------------------+
 ; Flow Summary                                                                         ;
 +------------------------------------+-------------------------------------------------+
-; Flow Status                        ; Successful - Mon Apr 13 17:51:03 2026           ;
+; Flow Status                        ; Successful - Mon Apr 13 18:26:27 2026           ;
 ; Quartus II 64-Bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition ;
 ; Revision Name                      ; cont_75                                         ;
 ; Top-level Entity Name              ; cont_75                                         ;
 ; Family                             ; Cyclone II                                      ;
 ; Device                             ; EP2C35F672C6                                    ;
 ; Timing Models                      ; Final                                           ;
-; Total logic elements               ; 94 / 33,216 ( < 1 % )                           ;
-;     Total combinational functions  ; 93 / 33,216 ( < 1 % )                           ;
-;     Dedicated logic registers      ; 40 / 33,216 ( < 1 % )                           ;
-; Total registers                    ; 40                                              ;
+; Total logic elements               ; 96 / 33,216 ( < 1 % )                           ;
+;     Total combinational functions  ; 95 / 33,216 ( < 1 % )                           ;
+;     Dedicated logic registers      ; 41 / 33,216 ( < 1 % )                           ;
+; Total registers                    ; 41                                              ;
 ; Total pins                         ; 72 / 475 ( 15 % )                               ;
 ; Total virtual pins                 ; 0                                               ;
 ; Total memory bits                  ; 0 / 483,840 ( 0 % )                             ;
@@ -64,7 +64,7 @@ applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 04/13/2026 17:50:53 ;
+; Start date & time ; 04/13/2026 18:26:16 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; cont_75             ;
 +-------------------+---------------------+
@@ -75,7 +75,7 @@ applicable agreement for further details.
 +-------------------------------------+---------------------------------------+---------------+-------------+----------------+
 ; Assignment Name                     ; Value                                 ; Default Value ; Entity Name ; Section Id     ;
 +-------------------------------------+---------------------------------------+---------------+-------------+----------------+
-; COMPILER_SIGNATURE_ID               ; 4930993027721.177611345330788         ; --            ; --          ; --             ;
+; COMPILER_SIGNATURE_ID               ; 4930993027721.177611557635144         ; --            ; --          ; --             ;
 ; EDA_OUTPUT_DATA_FORMAT              ; Vhdl                                  ; --            ; --          ; eda_simulation ;
 ; EDA_SIMULATION_TOOL                 ; ModelSim-Altera (VHDL)                ; <None>        ; --          ; --             ;
 ; MAX_CORE_JUNCTION_TEMP              ; 85                                    ; --            ; --          ; --             ;
@@ -97,7 +97,7 @@ applicable agreement for further details.
 ; Analysis & Synthesis      ; 00:00:01     ; 1.0                     ; 4656 MB             ; 00:00:01                           ;
 ; Fitter                    ; 00:00:04     ; 1.0                     ; 4894 MB             ; 00:00:04                           ;
 ; Assembler                 ; 00:00:01     ; 1.0                     ; 4583 MB             ; 00:00:01                           ;
-; TimeQuest Timing Analyzer ; 00:00:00     ; 1.0                     ; 4565 MB             ; 00:00:01                           ;
+; TimeQuest Timing Analyzer ; 00:00:00     ; 1.0                     ; 4554 MB             ; 00:00:01                           ;
 ; EDA Netlist Writer        ; 00:00:01     ; 1.0                     ; 4522 MB             ; 00:00:00                           ;
 ; Total                     ; 00:00:07     ; --                      ; --                  ; 00:00:07                           ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+

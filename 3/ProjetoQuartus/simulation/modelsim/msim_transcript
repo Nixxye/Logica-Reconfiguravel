@@ -168,10 +168,10 @@ do cont_75.do
 # 
 #           File in use by: aguia  Hostname: EMERSONPC  ProcessID: 11720
 # 
-#           Attempting to use alternate WLF file "./wlftzcf2rq".
+#           Attempting to use alternate WLF file "./wlft69yta1".
 # ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
 # 
-#           Using alternate file: ./wlftzcf2rq
+#           Using alternate file: ./wlft69yta1
 # 
 # add wave -noupdate sim:/cont_75_tb/rst
 # add wave -noupdate sim:/cont_75_tb/btn_play_pause
@@ -197,4 +197,4 @@ do cont_75.do
 # configure wave -valuecolwidth 80
 # configure wave -timelineunits ms
 # update
-run 100 sec
+run 10 sec

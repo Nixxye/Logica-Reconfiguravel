@@ -15,7 +15,7 @@ L4
 Vzk1ECPS39HE1W@S9z2ZiP3
 Z7 OV;C;10.1d;51
 31
-Z8 !s108 1776113485.473000
+Z8 !s108 1776115624.218000
 Z9 !s90 -reportprogress|300|-93|C:/Users/cjean/Documents/Git/Logica-Reconfiguravel/3/ProjetoQuartus/bcd_7seg.vhd|
 Z10 !s107 C:/Users/cjean/Documents/Git/Logica-Reconfiguravel/3/ProjetoQuartus/bcd_7seg.vhd|
 Z11 o-93 -O0
@@ -51,7 +51,7 @@ L5
 V?cdVbjB2Z8fWaI?a;YA]43
 R7
 31
-Z17 !s108 1776113485.418000
+Z17 !s108 1776115624.161000
 Z18 !s90 -reportprogress|300|-93|C:/Users/cjean/Documents/Git/Logica-Reconfiguravel/3/ProjetoQuartus/cont_4.vhd|
 Z19 !s107 C:/Users/cjean/Documents/Git/Logica-Reconfiguravel/3/ProjetoQuartus/cont_4.vhd|
 R11
@@ -76,7 +76,7 @@ R12
 !s100 9<VDoi^4KT4KKILoBz5NY2
 !i10b 1
 Econt_75
-Z20 w1776113443
+Z20 w1776115569
 R14
 R2
 R3
@@ -88,7 +88,7 @@ L5
 VV:@mhR8[9OH`Kbj9_8z2[1
 R7
 31
-Z23 !s108 1776113485.528000
+Z23 !s108 1776115624.268000
 Z24 !s90 -reportprogress|300|-93|C:/Users/cjean/Documents/Git/Logica-Reconfiguravel/3/ProjetoQuartus/cont_75.vhd|
 Z25 !s107 C:/Users/cjean/Documents/Git/Logica-Reconfiguravel/3/ProjetoQuartus/cont_75.vhd|
 R11
@@ -102,7 +102,7 @@ R3
 Z26 DEx4 work 7 cont_75 0 22 V:@mhR8[9OH`Kbj9_8z2[1
 l77
 L32
-V[J_CG[7hlJTf61gUH;J]B3
+V<WmS[zJ5W?z1m0Q:0daae3
 R7
 31
 R23
@@ -110,7 +110,7 @@ R24
 R25
 R11
 R12
-!s100 [@gjWz3HIb1:_XBH9i`D;3
+!s100 Ji1njL[;@RL2F4BobOMfi3
 !i10b 1
 Econt_75_tb
 Z27 w1776111716
@@ -127,7 +127,7 @@ VGbR>]ZRFGYd9N6Z:1iJCz3
 R7
 31
 !i10b 1
-Z30 !s108 1776113485.583000
+Z30 !s108 1776115624.326000
 Z31 !s90 -reportprogress|300|-93|C:/Users/cjean/Documents/Git/Logica-Reconfiguravel/3/ProjetoQuartus/cont_75_tb.vhd|
 Z32 !s107 C:/Users/cjean/Documents/Git/Logica-Reconfiguravel/3/ProjetoQuartus/cont_75_tb.vhd|
 R11
