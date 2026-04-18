@@ -1,0 +1,80 @@
+m255
+K3
+13
+cModel Technology
+Z0 dC:\Users\cjean\Documents\Git\Logica-Reconfiguravel\4\ProjetoQuartus
+Etotalizador_b_tb
+Z1 w1776535147
+Z2 DPx4 ieee 11 numeric_std 0 22 O3PF8EB`?j9=z7KT`fn941
+Z3 DPx3 std 6 textio 0 22 5>J:;AW>W0[[dW0I6EN1Q0
+Z4 DPx4 ieee 14 std_logic_1164 0 22 5=aWaoGZSMWIcH0i^f`XF1
+Z5 dC:\Users\cjean\Documents\Git\Logica-Reconfiguravel\4\ProjetoQuartus
+Z6 8C:/Users/cjean/Documents/Git/Logica-Reconfiguravel/4/ProjetoQuartus/totalizador_b_tb.vhd
+Z7 FC:/Users/cjean/Documents/Git/Logica-Reconfiguravel/4/ProjetoQuartus/totalizador_b_tb.vhd
+l0
+L5
+V99RJD<dT`:IbDA4dTcEX=1
+!s100 TRYc4@V4[=oIoT:3l7me<2
+Z8 OV;C;10.1d;51
+31
+!i10b 1
+Z9 !s108 1776535180.188000
+Z10 !s90 -reportprogress|300|-93|C:/Users/cjean/Documents/Git/Logica-Reconfiguravel/4/ProjetoQuartus/totalizador_b_tb.vhd|
+Z11 !s107 C:/Users/cjean/Documents/Git/Logica-Reconfiguravel/4/ProjetoQuartus/totalizador_b_tb.vhd|
+Z12 o-93 -O0
+Z13 tExplicit 1
+Atb
+Z14 DEx4 work 21 totalizadores_rapidos 0 22 4kY`=Gl7O2ljdFjTdfSOQ1
+R2
+R3
+R4
+DEx4 work 16 totalizador_b_tb 0 22 99RJD<dT`:IbDA4dTcEX=1
+l20
+L8
+VojV7ibj=Qb3O]lZfnM`g`3
+!s100 >94MER9V@6]BU]US2:E223
+R8
+31
+!i10b 1
+R9
+R10
+R11
+R12
+R13
+Etotalizadores_rapidos
+Z15 w1776533518
+R2
+R3
+R4
+R5
+Z16 8C:/Users/cjean/Documents/Git/Logica-Reconfiguravel/4/ProjetoQuartus/totalizador_b.vhd
+Z17 FC:/Users/cjean/Documents/Git/Logica-Reconfiguravel/4/ProjetoQuartus/totalizador_b.vhd
+l0
+L5
+V4kY`=Gl7O2ljdFjTdfSOQ1
+R8
+31
+Z18 !s108 1776535180.134000
+Z19 !s90 -reportprogress|300|-93|C:/Users/cjean/Documents/Git/Logica-Reconfiguravel/4/ProjetoQuartus/totalizador_b.vhd|
+Z20 !s107 C:/Users/cjean/Documents/Git/Logica-Reconfiguravel/4/ProjetoQuartus/totalizador_b.vhd|
+R12
+R13
+!s100 i]FR<aJdK5cXa4[e:3[Og0
+!i10b 1
+Abehavioral
+R2
+R3
+R4
+R14
+l21
+L19
+VT0oB25I>7n]^3DI]>lCin1
+R8
+31
+R18
+R19
+R20
+R12
+R13
+!s100 mm8QR@kOiz_58Vl7cQ90m0
+!i10b 1

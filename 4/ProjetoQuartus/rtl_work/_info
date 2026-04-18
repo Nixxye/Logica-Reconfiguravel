@@ -1,0 +1,80 @@
+m255
+K3
+13
+cModel Technology
+Z0 dC:\altera\13.0sp1\Tarefa2\ProjetoQuartus
+Econt_75
+Z1 w1775407358
+Z2 DPx4 ieee 11 numeric_std 0 22 O3PF8EB`?j9=z7KT`fn941
+Z3 DPx3 std 6 textio 0 22 5>J:;AW>W0[[dW0I6EN1Q0
+Z4 DPx4 ieee 14 std_logic_1164 0 22 5=aWaoGZSMWIcH0i^f`XF1
+Z5 dC:\altera\13.0sp1\Tarefa2\ProjetoQuartus
+Z6 8C:/altera/13.0sp1/Tarefa2/ProjetoQuartus/cont_75.vhd
+Z7 FC:/altera/13.0sp1/Tarefa2/ProjetoQuartus/cont_75.vhd
+l0
+L43
+VCU8QSNVL]]Sh:Bz46oVme3
+!s100 BNQ09X5B4W5TMVZ8VI9XK0
+Z8 OV;C;10.1d;51
+31
+!i10b 1
+Z9 !s108 1775520130.661000
+Z10 !s90 -93|-work|work|C:/altera/13.0sp1/Tarefa2/ProjetoQuartus/cont_75.vhd|
+Z11 !s107 C:/altera/13.0sp1/Tarefa2/ProjetoQuartus/cont_75.vhd|
+Z12 o-93 -work work -O0
+Z13 tExplicit 1
+Astructural
+Z14 DEx4 work 13 counter_mod16 0 22 XIB3>kanIUiI8WIdMFhX;0
+DEx4 work 7 cont_75 0 22 CU8QSNVL]]Sh:Bz46oVme3
+R2
+R3
+R4
+l74
+L57
+VdY^N]FSDz@JV[LVJU:CL_2
+!s100 TM`B_Y]f1Wzco^B;2`<f=3
+R8
+31
+!i10b 1
+R9
+R10
+R11
+R12
+R13
+Ecounter_mod16
+R1
+R2
+R3
+R4
+R5
+R6
+R7
+l0
+L5
+VXIB3>kanIUiI8WIdMFhX;0
+!s100 CdiL9^5gb]]V:1mGK?6eD0
+R8
+31
+!i10b 1
+R9
+R10
+R11
+R12
+R13
+Artl
+R2
+R3
+R4
+R14
+l22
+L20
+VkOjSi[2JgKoeN2E[5^;VX3
+!s100 UkGXhlb<1lBRFebZ9hFh<0
+R8
+31
+!i10b 1
+R9
+R10
+R11
+R12
+R13

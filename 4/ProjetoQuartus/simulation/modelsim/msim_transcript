@@ -1,0 +1,169 @@
+# Reading C:/altera/13.0sp1/modelsim_ase/tcl/vsim/pref.tcl 
+# do cont_75_run_msim_rtl_vhdl.do 
+# if {[file exists rtl_work]} {
+# 	vdel -lib rtl_work -all
+# }
+# vlib rtl_work
+# vmap work rtl_work
+# Copying C:\altera\13.0sp1\modelsim_ase\win32aloem/../modelsim.ini to modelsim.ini
+# Modifying modelsim.ini
+# ** Warning: Copied C:\altera\13.0sp1\modelsim_ase\win32aloem/../modelsim.ini to modelsim.ini.
+#          Updated modelsim.ini.
+# 
+# vcom -93 -work work {C:/Users/cjean/Documents/Git/Logica-Reconfiguravel/4/ProjetoQuartus/totalizador_a.vhd}
+# Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity totalizador_a
+# -- Compiling architecture Behavioral of totalizador_a
+# 
+cd C:/Users/cjean/Documents/Git/Logica-Reconfiguravel/4/ProjetoQuartus
+# reading modelsim.ini
+do totalizador_b.do
+# 
+# set SCRIPT_FILE [info script]
+# if {$SCRIPT_FILE eq ""} {
+#     set PROJECT_DIR [pwd]
+# } else {
+#     set PROJECT_DIR [file dirname [file normalize $SCRIPT_FILE]]
+# }
+# C:/Users/cjean/Documents/Git/Logica-Reconfiguravel/4/ProjetoQuartus
+# 
+# cd $PROJECT_DIR
+# reading modelsim.ini
+# 
+# set MODE rtl
+# rtl
+# if {[info exists ::SIM_MODE]} {
+#     set MODE [string tolower $::SIM_MODE]
+# }
+# unset -nocomplain ::SIM_MODE
+# 
+# set RTL_SOURCE [file join $PROJECT_DIR totalizador_b.vhd]
+# C:/Users/cjean/Documents/Git/Logica-Reconfiguravel/4/ProjetoQuartus/totalizador_b.vhd
+# set TB_SOURCE [file join $PROJECT_DIR totalizador_b_tb.vhd]
+# C:/Users/cjean/Documents/Git/Logica-Reconfiguravel/4/ProjetoQuartus/totalizador_b_tb.vhd
+# set GATE_DIR [file join $PROJECT_DIR simulation modelsim]
+# C:/Users/cjean/Documents/Git/Logica-Reconfiguravel/4/ProjetoQuartus/simulation/modelsim
+# 
+# set GATE_NETLIST ""
+# foreach candidate [list \
+#     [file join $GATE_DIR totalizador_b.vho] \
+#     [file join $GATE_DIR totalizadores_rapidos.vho]] {
+#     if {[file exists $candidate]} {
+#         set GATE_NETLIST $candidate
+#         break
+#     }
+# }
+# 
+# set GATE_SDF ""
+# foreach candidate [list \
+#     [file join $GATE_DIR totalizador_b_vhd.sdo] \
+#     [file join $GATE_DIR totalizadores_rapidos_vhd.sdo]] {
+#     if {[file exists $candidate]} {
+#         set GATE_SDF $candidate
+#         break
+#     }
+# }
+# 
+# if {[file exists work]} {
+#     vdel -lib work -all
+# }
+# 
+# vlib work
+# vmap work work
+# Modifying modelsim.ini
+# 
+# switch -- $MODE {
+#     rtl {
+#         if {![file exists $RTL_SOURCE]} {
+#             puts "Arquivo RTL nao encontrado: $RTL_SOURCE"
+#             quit -f
+#         }
+#         if {![file exists $TB_SOURCE]} {
+#             puts "Arquivo TB nao encontrado: $TB_SOURCE"
+#             quit -f
+#         }
+# 
+#         puts "Simulacao RTL totalizador_b"
+#         vcom -93 $RTL_SOURCE
+#         vcom -93 $TB_SOURCE
+#         vsim -t ps -voptargs=+acc work.totalizador_b_tb
+#     }
+#     gate {
+#         if {$GATE_NETLIST eq ""} {
+#             puts "Netlist gate-level nao encontrado em $GATE_DIR"
+#             quit -f
+#         }
+#         if {$GATE_SDF eq ""} {
+#             puts "Arquivo SDF nao encontrado em $GATE_DIR"
+#             quit -f
+#         }
+#         if {![file exists $TB_SOURCE]} {
+#             puts "Arquivo TB nao encontrado: $TB_SOURCE"
+#             quit -f
+#         }
+# 
+#         puts "Simulacao gate-level totalizador_b"
+#         puts "Usando netlist: $GATE_NETLIST"
+#         puts "Usando SDF: $GATE_SDF"
+#         vcom -93 $GATE_NETLIST
+#         vcom -93 $TB_SOURCE
+#         vsim -t ps -voptargs=+acc -sdfmax /totalizador_b_tb/dut=$GATE_SDF work.totalizador_b_tb
+#     }
+#     default {
+#         puts "Modo invalido: $MODE"
+#         puts "Use: do totalizador_b.do rtl"
+#         puts "Ou:  do totalizador_b.do gate"
+#         quit -f
+#     }
+# }
+# Simulacao RTL totalizador_b
+# Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity totalizadores_rapidos
+# -- Compiling architecture Behavioral of totalizadores_rapidos
+# Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity totalizador_b_tb
+# -- Compiling architecture tb of totalizador_b_tb
+# -- Loading entity totalizadores_rapidos
+# vsim -voptargs=+acc -t ps work.totalizador_b_tb 
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.totalizador_b_tb(tb)
+# Loading work.totalizadores_rapidos(behavioral)
+# 
+# add wave -noupdate sim:/totalizador_b_tb/clk
+# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
+# 
+#           File in use by: aguia  Hostname: EMERSONPC  ProcessID: 11720
+# 
+#           Attempting to use alternate WLF file "./wlft3q1ifa".
+# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
+# 
+#           Using alternate file: ./wlft3q1ifa
+# 
+# add wave -noupdate -radix binary sim:/totalizador_b_tb/inpt
+# add wave -noupdate -radix unsigned sim:/totalizador_b_tb/q_b1_for
+# add wave -noupdate -radix unsigned sim:/totalizador_b_tb/q_b2_while
+# add wave -noupdate -radix unsigned sim:/totalizador_b_tb/q_b3_if
+# add wave -noupdate -radix unsigned sim:/totalizador_b_tb/q_b4_case
+# add wave -noupdate -radix unsigned sim:/totalizador_b_tb/q_b5_soma
+# add wave -noupdate -radix unsigned sim:/totalizador_b_tb/q_b6_demux
+# configure wave -namecolwidth 180
+# configure wave -valuecolwidth 100
+# configure wave -timelineunits ns
+# update
+run 1 ms
+# WARNING: No extended dataflow license exists

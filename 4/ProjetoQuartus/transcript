@@ -1,0 +1,171 @@
+# do simulation/modelsim/cont_75_run_msim_gate_vhdl.do 
+# set SCRIPT_FILE [info script]
+# if {$SCRIPT_FILE eq ""} {
+# 	set PROJECT_DIR [pwd]
+# } else {
+# 	set PROJECT_DIR [file dirname [file dirname [file dirname [file normalize $SCRIPT_FILE]]]]
+# }
+# C:/altera/13.0sp1/Tarefa2/ProjetoQuartus
+# 
+# set ::SIM_MODE gate
+# gate
+# do [file join $PROJECT_DIR cont_75.do]
+# transcript on
+# 
+# set SCRIPT_FILE [info script]
+# if {$SCRIPT_FILE eq ""} {
+#     set PROJECT_DIR [pwd]
+# } else {
+#     set PROJECT_DIR [file dirname [file normalize $SCRIPT_FILE]]
+# }
+# C:/altera/13.0sp1/Tarefa2/ProjetoQuartus
+# 
+# cd $PROJECT_DIR
+# reading modelsim.ini
+# 
+# set MODE rtl
+# rtl
+# if {[info exists ::SIM_MODE]} {
+#     set MODE [string tolower $::SIM_MODE]
+# }
+# gate
+# unset -nocomplain ::SIM_MODE
+# 
+# set RTL_SOURCE [file join $PROJECT_DIR cont_75.vhd]
+# C:/altera/13.0sp1/Tarefa2/ProjetoQuartus/cont_75.vhd
+# set TB_SOURCE [file join $PROJECT_DIR cont_75_tb.vhd]
+# C:/altera/13.0sp1/Tarefa2/ProjetoQuartus/cont_75_tb.vhd
+# set GATE_DIR [file join $PROJECT_DIR simulation modelsim]
+# C:/altera/13.0sp1/Tarefa2/ProjetoQuartus/simulation/modelsim
+# set GATE_NETLIST [file join $GATE_DIR cont_75.vho]
+# C:/altera/13.0sp1/Tarefa2/ProjetoQuartus/simulation/modelsim/cont_75.vho
+# set GATE_SDF [file join $GATE_DIR cont_75_vhd.sdo]
+# C:/altera/13.0sp1/Tarefa2/ProjetoQuartus/simulation/modelsim/cont_75_vhd.sdo
+# 
+# if {[file exists work]} {
+#     vdel -lib work -all
+# }
+# 
+# vlib work
+# vmap work work
+# Modifying modelsim.ini
+# 
+# switch -- $MODE {
+#     rtl {
+#         if {![file exists $RTL_SOURCE]} {
+#             puts "Arquivo RTL nao encontrado: $RTL_SOURCE"
+#             quit -f
+#         }
+#         if {![file exists $TB_SOURCE]} {
+#             puts "Arquivo TB nao encontrado: $TB_SOURCE"
+#             quit -f
+#         }
+# 
+#         puts "Simulacao RTL"
+#         vcom -93 $RTL_SOURCE
+#         vcom -93 $TB_SOURCE
+#         vsim -t ps -voptargs=+acc work.cont_75_tb
+#     }
+#     gate {
+#         if {![file exists $GATE_NETLIST]} {
+#             puts "Netlist gate-level nao encontrado: $GATE_NETLIST"
+#             quit -f
+#         }
+#         if {![file exists $GATE_SDF]} {
+#             puts "Arquivo SDF nao encontrado: $GATE_SDF"
+#             quit -f
+#         }
+#         if {![file exists $TB_SOURCE]} {
+#             puts "Arquivo TB nao encontrado: $TB_SOURCE"
+#             quit -f
+#         }
+# 
+#         puts "Simulacao gate-level"
+#         vcom -93 $GATE_NETLIST
+#         vcom -93 $TB_SOURCE
+#         vsim -t ps -voptargs=+acc -sdfmax /cont_75_tb/dut=$GATE_SDF work.cont_75_tb
+#     }
+#     default {
+#         puts "Modo invalido: $MODE"
+#         puts "Use: do cont_75.do rtl"
+#         puts "Ou:  do cont_75.do gate"
+#         quit -f
+#     }
+# }
+# Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package VITAL_Timing
+# -- Loading package VITAL_Primitives
+# -- Loading package dffeas_pack
+# -- Loading package altera_primitives_components
+# -- Loading package cycloneive_atom_pack
+# -- Loading package cycloneive_components
+# -- Compiling entity cont_75
+# -- Compiling architecture structure of cont_75
+# Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity cont_75_tb
+# -- Compiling architecture tb of cont_75_tb
+# -- Loading package VITAL_Timing
+# -- Loading package VITAL_Primitives
+# -- Loading package dffeas_pack
+# -- Loading package altera_primitives_components
+# -- Loading package cycloneive_atom_pack
+# -- Loading package cycloneive_components
+# -- Loading entity cont_75
+# vsim -voptargs=+acc -sdfmax /cont_75_tb/dut=C:/altera/13.0sp1/Tarefa2/ProjetoQuartus/simulation/modelsim/cont_75_vhd.sdo -t ps work.cont_75_tb 
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading ieee.vital_timing(body)
+# Loading ieee.vital_primitives(body)
+# Loading altera.dffeas_pack
+# Loading altera.altera_primitives_components
+# Loading cycloneive.cycloneive_atom_pack(body)
+# Loading cycloneive.cycloneive_components
+# Loading work.cont_75_tb(tb)
+# SDF 10.1d Compiler 2012.11 Nov  2 2012
+# 
+# Loading work.cont_75(structure)
+# Loading cycloneive.cycloneive_lcell_comb(vital_lcell_comb)
+# Loading ieee.std_logic_arith(body)
+# Loading cycloneive.cycloneive_io_obuf(arch)
+# Loading cycloneive.cycloneive_io_ibuf(arch)
+# Loading cycloneive.cycloneive_clkctrl(vital_clkctrl)
+# Loading cycloneive.cycloneive_ena_reg(behave)
+# Loading altera.dffeas(vital_dffeas)
+# Loading instances from C:/altera/13.0sp1/Tarefa2/ProjetoQuartus/simulation/modelsim/cont_75_vhd.sdo
+# Loading timing data from C:/altera/13.0sp1/Tarefa2/ProjetoQuartus/simulation/modelsim/cont_75_vhd.sdo
+# ** Note: (vsim-3587) SDF Backannotation Successfully Completed.
+#    Time: 0 ps  Iteration: 0  Instance: /cont_75_tb File: C:/altera/13.0sp1/Tarefa2/ProjetoQuartus/cont_75_tb.vhd
+# 
+# add wave -noupdate sim:/cont_75_tb/clk
+# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
+# 
+#           File in use by: Felpi  Hostname: FELIPE  ProcessID: 15112
+# 
+#           Attempting to use alternate WLF file "./wlft2sjyqr".
+# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
+# 
+#           Using alternate file: ./wlft2sjyqr
+# 
+# add wave -noupdate sim:/cont_75_tb/clr
+# add wave -noupdate sim:/cont_75_tb/rst
+# add wave -noupdate sim:/cont_75_tb/en
+# add wave -noupdate -radix hex sim:/cont_75_tb/q
+# configure wave -namecolwidth 120
+# configure wave not supported in batch mode
+# configure wave -valuecolwidth 80
+# configure wave not supported in batch mode
+# configure wave -timelineunits ms
+# configure wave not supported in batch mode
+# update
+# run 10 sec
+# 
+#  quit -f 
