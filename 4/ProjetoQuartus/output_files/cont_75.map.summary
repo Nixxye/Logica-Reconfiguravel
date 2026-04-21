@@ -1,13 +1,13 @@
-Analysis & Synthesis Status : Successful - Tue Apr 21 18:06:06 2026
+Analysis & Synthesis Status : Successful - Tue Apr 21 18:23:40 2026
 Quartus II 64-Bit Version : 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition
 Revision Name : cont_75
-Top-level Entity Name : totalizador_a
+Top-level Entity Name : totalizadores_rapidos
 Family : Cyclone II
-Total logic elements : 19
-    Total combinational functions : 19
-    Dedicated logic registers : 8
-Total registers : 8
-Total pins : 14
+Total logic elements : 21
+    Total combinational functions : 15
+    Dedicated logic registers : 9
+Total registers : 9
+Total pins : 30
 Total virtual pins : 0
 Total memory bits : 0
 Embedded Multiplier 9-bit elements : 0

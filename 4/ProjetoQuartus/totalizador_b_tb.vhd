@@ -6,7 +6,7 @@ entity totalizador_b_tb is
 end entity totalizador_b_tb;
 
 architecture tb of totalizador_b_tb is
-    constant CLK_PERIOD : time := 20 ns;
+    constant CLK_PERIOD : time := 10 ns;
 
     signal clk       : std_logic := '0';
     signal inpt      : std_logic_vector(4 downto 0) := (others => '0');
