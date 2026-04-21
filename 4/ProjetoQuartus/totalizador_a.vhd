@@ -12,7 +12,7 @@ end totalizador_a;
 
 architecture Behavioral of totalizador_a is
     signal count : unsigned(3 downto 0) := "0000";
-    signal val : std_logic_vector(4 downto 0) := "11111";
+    signal val : std_logic_vector(4 downto 0) := (others => '0');
 begin
     process(CLK, RST)
     begin

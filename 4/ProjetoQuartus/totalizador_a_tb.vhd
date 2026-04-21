@@ -43,42 +43,46 @@ begin
         rst <= '1';
         wait for 2 * CLK_PERIOD;
         rst <= '0';
-        wait for CLK_PERIOD;
 
         -- 1) Primeiro valor e espera de 5 clocks.
+        wait until falling_edge(clk);
         inpt <= "10101";
         init <= '1';
-        wait until rising_edge(clk);
+        wait until falling_edge(clk);
         init <= '0';
-        wait for 5 * CLK_PERIOD;
+        wait for 6 * CLK_PERIOD;
 
         -- 2) Segundo valor e espera de 5 clocks.
+        wait until falling_edge(clk);
         inpt <= "11111";
         init <= '1';
-        wait until rising_edge(clk);
+        wait until falling_edge(clk);
         init <= '0';
-        wait for 5 * CLK_PERIOD;
+        wait for 6 * CLK_PERIOD;
 
         -- 3) Terceiro valor e espera de 5 clocks.
+        wait until falling_edge(clk);
         inpt <= "00000";
         init <= '1';
-        wait until rising_edge(clk);
+        wait until falling_edge(clk);
         init <= '0';
-        wait for 5 * CLK_PERIOD;
+        wait for 6 * CLK_PERIOD;
 
         -- 4) Quarto valor e espera de 5 clocks.
+        wait until falling_edge(clk);
         inpt <= "01011";
         init <= '1';
-        wait until rising_edge(clk);
+        wait until falling_edge(clk);
         init <= '0';
-        wait for 5 * CLK_PERIOD;
+        wait for 6 * CLK_PERIOD;
 
         -- 5) Quinto valor e espera de 5 clocks.
+        wait until falling_edge(clk);
         inpt <= "00110";
         init <= '1';
-        wait until rising_edge(clk);
+        wait until falling_edge(clk);
         init <= '0';
-        wait for 5 * CLK_PERIOD;
+        wait for 6 * CLK_PERIOD;
 
         wait;
     end process;

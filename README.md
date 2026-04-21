@@ -2,3 +2,5 @@
 Jean Carlos do Nascimento Cunha
 
 Imagens da simulação estão na pasta imagens
+
+cd C:/Users/cjean/Documents/Git/Logica-Reconfiguravel/4/ProjetoQuartus

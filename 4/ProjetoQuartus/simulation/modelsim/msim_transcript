@@ -1,26 +1,494 @@
 # Reading C:/altera/13.0sp1/modelsim_ase/tcl/vsim/pref.tcl 
-# do cont_75_run_msim_rtl_vhdl.do 
-# if {[file exists rtl_work]} {
-# 	vdel -lib rtl_work -all
+# do cont_75_run_msim_gate_vhdl.do 
+# if {[file exists gate_work]} {
+# 	vdel -lib gate_work -all
 # }
-# vlib rtl_work
-# vmap work rtl_work
-# Copying C:\altera\13.0sp1\modelsim_ase\win32aloem/../modelsim.ini to modelsim.ini
-# Modifying modelsim.ini
-# ** Warning: Copied C:\altera\13.0sp1\modelsim_ase\win32aloem/../modelsim.ini to modelsim.ini.
-#          Updated modelsim.ini.
+# ** Error: (vdel-19) Failed to access library 'gate_work' at "gate_work".
 # 
-# vcom -93 -work work {C:/Users/cjean/Documents/Git/Logica-Reconfiguravel/4/ProjetoQuartus/totalizador_a.vhd}
+# No such file or directory. (errno = ENOENT)
+# ** Warning: (vdel-57) Library 'gate_work' is missing or is not a valid ModelSim library.
+# 
+# ** Error: C:/altera/13.0sp1/modelsim_ase/win32aloem/vdel failed.
+# Error in macro ./cont_75_run_msim_gate_vhdl.do line 4
+# C:/altera/13.0sp1/modelsim_ase/win32aloem/vdel failed.
+#     while executing
+# "vdel -lib gate_work -all"
+#     invoked from within
+# "if {[file exists gate_work]} {
+# 	vdel -lib gate_work -all
+# }"
+cd C:/Users/cjean/Documents/Git/Logica-Reconfiguravel/4/ProjetoQuartus
+# reading modelsim.ini
+
+do totalizador_a_gate.do
+# 
+# set SCRIPT_FILE [info script]
+# if {$SCRIPT_FILE eq ""} {
+#     set SCRIPT_DIR [pwd]
+# } else {
+#     set SCRIPT_DIR [file dirname [file normalize $SCRIPT_FILE]]
+# }
+# C:/Users/cjean/Documents/Git/Logica-Reconfiguravel/4/ProjetoQuartus
+# 
+# set ::SIM_MODE gate
+# gate
+# do [file join $SCRIPT_DIR totalizador_a.do]
+# transcript on
+# 
+# set SCRIPT_FILE [info script]
+# if {$SCRIPT_FILE eq ""} {
+#     set PROJECT_DIR [pwd]
+# } else {
+#     set PROJECT_DIR [file dirname [file normalize $SCRIPT_FILE]]
+# }
+# C:/Users/cjean/Documents/Git/Logica-Reconfiguravel/4/ProjetoQuartus
+# 
+# cd $PROJECT_DIR
+# reading modelsim.ini
+# 
+# set MODE rtl
+# rtl
+# if {[info exists ::SIM_MODE]} {
+#     set MODE [string tolower $::SIM_MODE]
+# }
+# gate
+# unset -nocomplain ::SIM_MODE
+# 
+# set RTL_SOURCE [file join $PROJECT_DIR totalizador_a.vhd]
+# C:/Users/cjean/Documents/Git/Logica-Reconfiguravel/4/ProjetoQuartus/totalizador_a.vhd
+# set TB_SOURCE [file join $PROJECT_DIR totalizador_a_tb.vhd]
+# C:/Users/cjean/Documents/Git/Logica-Reconfiguravel/4/ProjetoQuartus/totalizador_a_tb.vhd
+# set GATE_DIR [file join $PROJECT_DIR simulation modelsim]
+# C:/Users/cjean/Documents/Git/Logica-Reconfiguravel/4/ProjetoQuartus/simulation/modelsim
+# set EXPECTED_GATE_ENTITY totalizador_a
+# totalizador_a
+# 
+# proc get_vho_entity_name {vho_file} {
+#     if {![file exists $vho_file]} {
+#         return ""
+#     }
+# 
+#     set fh [open $vho_file r]
+#     set content [read $fh]
+#     close $fh
+# 
+#     # Extrai o primeiro nome de entidade declarado no netlist.
+#     if {[regexp -nocase {ENTITY[ \t\r\n]+([A-Za-z0-9_]+)[ \t\r\n]+IS} $content -> entity_name]} {
+#         return [string tolower $entity_name]
+#     }
+# 
+#     return ""
+# }
+# 
+# proc find_matching_sdf {gate_dir netlist_file} {
+#     set base [file rootname [file tail $netlist_file]]
+#     foreach candidate [list \
+#         [file join $gate_dir ${base}_vhd.sdo] \
+#         [file join $gate_dir ${base}.sdo] \
+#         [file join $gate_dir totalizador_a_vhd.sdo] \
+#         [file join $gate_dir cont_75_vhd.sdo] \
+#         [file join $gate_dir cont_75_vhd_fast.sdo]] {
+#         if {[file exists $candidate]} {
+#             return $candidate
+#         }
+#     }
+#     return ""
+# }
+# 
+# set GATE_NETLIST ""
+# set GATE_SDF ""
+# set FOUND_GATE_ENTITIES ""
+# foreach candidate [list \
+#     [file join $GATE_DIR totalizador_a.vho] \
+#     [file join $GATE_DIR cont_75.vho] \
+#     [file join $GATE_DIR cont_75_fast.vho]] {
+#     if {[file exists $candidate]} {
+#         set candidate_entity [get_vho_entity_name $candidate]
+#         if {$candidate_entity ne ""} {
+#             append FOUND_GATE_ENTITIES "  - [file tail $candidate] => $candidate_entity\n"
+#         } else {
+#             append FOUND_GATE_ENTITIES "  - [file tail $candidate] => (entidade nao identificada)\n"
+#         }
+# 
+#         if {$candidate_entity eq [string tolower $EXPECTED_GATE_ENTITY]} {
+#             set GATE_NETLIST $candidate
+#             set GATE_SDF [find_matching_sdf $GATE_DIR $candidate]
+#             break
+#         }
+#     }
+# }
+# 
+# if {[file exists work]} {
+#     vdel -lib work -all
+# }
+# 
+# vlib work
+# vmap work work
+# Modifying modelsim.ini
+# 
+# switch -- $MODE {
+#     rtl {
+#         if {![file exists $RTL_SOURCE]} {
+#             puts "Arquivo RTL nao encontrado: $RTL_SOURCE"
+#             return
+#         }
+#         if {![file exists $TB_SOURCE]} {
+#             puts "Arquivo TB nao encontrado: $TB_SOURCE"
+#             return
+#         }
+# 
+#         puts "Simulacao RTL totalizador_a"
+#         vcom -93 $RTL_SOURCE
+#         vcom -93 $TB_SOURCE
+#         vsim -t ps -voptargs=+acc work.totalizador_a_tb
+#     }
+#     gate {
+#         if {$GATE_NETLIST eq ""} {
+#             puts "Netlist gate-level compativel nao encontrado em $GATE_DIR"
+#             puts "Esperado: entidade $EXPECTED_GATE_ENTITY"
+#             if {$FOUND_GATE_ENTITIES ne ""} {
+#                 puts "Encontrados:"
+#                 puts -nonewline $FOUND_GATE_ENTITIES
+#             }
+#             return
+#         }
+#         if {$GATE_SDF eq ""} {
+#             puts "Arquivo SDF nao encontrado para netlist: $GATE_NETLIST"
+#             return
+#         }
+#         if {![file exists $TB_SOURCE]} {
+#             puts "Arquivo TB nao encontrado: $TB_SOURCE"
+#             return
+#         }
+# 
+#         puts "Simulacao gate-level totalizador_a"
+#         puts "Usando netlist: $GATE_NETLIST"
+#         puts "Usando SDF: $GATE_SDF"
+#         vcom -93 $GATE_NETLIST
+#         vcom -93 $TB_SOURCE
+#         vsim -t ps -voptargs=+acc -sdfmax /totalizador_a_tb/dut=$GATE_SDF work.totalizador_a_tb
+#     }
+#     default {
+#         puts "Modo invalido: $MODE"
+#         puts "Use: do totalizador_a.do rtl"
+#         puts "Ou:  do totalizador_a.do gate"
+#         return
+#     }
+# }
+# Simulacao gate-level totalizador_a
+# Usando netlist: C:/Users/cjean/Documents/Git/Logica-Reconfiguravel/4/ProjetoQuartus/simulation/modelsim/cont_75.vho
+# Usando SDF: C:/Users/cjean/Documents/Git/Logica-Reconfiguravel/4/ProjetoQuartus/simulation/modelsim/cont_75_vhd.sdo
+# Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package VITAL_Timing
+# -- Loading package VITAL_Primitives
+# -- Loading package cycloneii_atom_pack
+# -- Loading package cycloneii_components
+# -- Compiling entity totalizador_a
+# -- Compiling architecture structure of totalizador_a
 # Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
 # -- Loading package NUMERIC_STD
-# -- Compiling entity totalizador_a
-# -- Compiling architecture Behavioral of totalizador_a
+# -- Compiling entity totalizador_a_tb
+# -- Compiling architecture tb of totalizador_a_tb
+# -- Loading package VITAL_Timing
+# -- Loading package VITAL_Primitives
+# -- Loading package cycloneii_atom_pack
+# -- Loading package cycloneii_components
+# -- Loading entity totalizador_a
+# vsim -voptargs=+acc -sdfmax /totalizador_a_tb/dut=C:/Users/cjean/Documents/Git/Logica-Reconfiguravel/4/ProjetoQuartus/simulation/modelsim/cont_75_vhd.sdo -t ps work.totalizador_a_tb 
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading ieee.vital_timing(body)
+# Loading ieee.vital_primitives(body)
+# Loading cycloneii.cycloneii_atom_pack(body)
+# Loading cycloneii.cycloneii_components
+# Loading work.totalizador_a_tb(tb)
+# SDF 10.1d Compiler 2012.11 Nov  2 2012
 # 
-cd C:/Users/cjean/Documents/Git/Logica-Reconfiguravel/4/ProjetoQuartus
+# Loading work.totalizador_a(structure)
+# Loading cycloneii.cycloneii_lcell_ff(vital_lcell_ff)
+# Loading cycloneii.cycloneii_and1(altvital)
+# Loading cycloneii.cycloneii_lcell_comb(vital_lcell_comb)
+# Loading ieee.std_logic_arith(body)
+# Loading cycloneii.cycloneii_io(structure)
+# Loading cycloneii.cycloneii_mux21(altvital)
+# Loading cycloneii.cycloneii_dffe(behave)
+# Loading cycloneii.cycloneii_asynch_io(behave)
+# Loading cycloneii.cycloneii_clkctrl(vital_clkctrl)
+# Loading cycloneii.cycloneii_ena_reg(behave)
+# Loading instances from C:/Users/cjean/Documents/Git/Logica-Reconfiguravel/4/ProjetoQuartus/simulation/modelsim/cont_75_vhd.sdo
+# Loading timing data from C:/Users/cjean/Documents/Git/Logica-Reconfiguravel/4/ProjetoQuartus/simulation/modelsim/cont_75_vhd.sdo
+# ** Note: (vsim-3587) SDF Backannotation Successfully Completed.
+#    Time: 0 ps  Iteration: 0  Instance: /totalizador_a_tb File: C:/Users/cjean/Documents/Git/Logica-Reconfiguravel/4/ProjetoQuartus/totalizador_a_tb.vhd
+# 
+# add wave -noupdate sim:/totalizador_a_tb/clk
+# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
+# 
+#           File in use by: aguia  Hostname: EMERSONPC  ProcessID: 11720
+# 
+#           Attempting to use alternate WLF file "./wlft08kh69".
+# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
+# 
+#           Using alternate file: ./wlft08kh69
+# 
+# add wave -noupdate sim:/totalizador_a_tb/rst
+# add wave -noupdate sim:/totalizador_a_tb/en
+# add wave -noupdate sim:/totalizador_a_tb/clr
+# add wave -noupdate sim:/totalizador_a_tb/init
+# add wave -noupdate -radix binary sim:/totalizador_a_tb/inpt
+# add wave -noupdate -radix unsigned sim:/totalizador_a_tb/q
+# add wave -noupdate -radix binary sim:/totalizador_a_tb/dut/val
+# add wave -noupdate -radix unsigned sim:/totalizador_a_tb/dut/count
+# configure wave -namecolwidth 160
+# configure wave -valuecolwidth 100
+# configure wave -timelineunits ns
+# update
+run 500 ns
+run 1 ms
+quit -sm
+# unknown switch: -sm
+quit sim
+# unknown switch: sim
+quit -sim
+do totalizador_a_gate.do
+# 
+# set SCRIPT_FILE [info script]
+# if {$SCRIPT_FILE eq ""} {
+#     set SCRIPT_DIR [pwd]
+# } else {
+#     set SCRIPT_DIR [file dirname [file normalize $SCRIPT_FILE]]
+# }
+# C:/Users/cjean/Documents/Git/Logica-Reconfiguravel/4/ProjetoQuartus
+# 
+# set ::SIM_MODE gate
+# gate
+# do [file join $SCRIPT_DIR totalizador_a.do]
+# transcript on
+# 
+# set SCRIPT_FILE [info script]
+# if {$SCRIPT_FILE eq ""} {
+#     set PROJECT_DIR [pwd]
+# } else {
+#     set PROJECT_DIR [file dirname [file normalize $SCRIPT_FILE]]
+# }
+# C:/Users/cjean/Documents/Git/Logica-Reconfiguravel/4/ProjetoQuartus
+# 
+# cd $PROJECT_DIR
 # reading modelsim.ini
+# 
+# set MODE rtl
+# rtl
+# if {[info exists ::SIM_MODE]} {
+#     set MODE [string tolower $::SIM_MODE]
+# }
+# gate
+# unset -nocomplain ::SIM_MODE
+# 
+# set RTL_SOURCE [file join $PROJECT_DIR totalizador_a.vhd]
+# C:/Users/cjean/Documents/Git/Logica-Reconfiguravel/4/ProjetoQuartus/totalizador_a.vhd
+# set TB_SOURCE [file join $PROJECT_DIR totalizador_a_tb.vhd]
+# C:/Users/cjean/Documents/Git/Logica-Reconfiguravel/4/ProjetoQuartus/totalizador_a_tb.vhd
+# set GATE_DIR [file join $PROJECT_DIR simulation modelsim]
+# C:/Users/cjean/Documents/Git/Logica-Reconfiguravel/4/ProjetoQuartus/simulation/modelsim
+# set EXPECTED_GATE_ENTITY totalizador_a
+# totalizador_a
+# 
+# proc get_vho_entity_name {vho_file} {
+#     if {![file exists $vho_file]} {
+#         return ""
+#     }
+# 
+#     set fh [open $vho_file r]
+#     set content [read $fh]
+#     close $fh
+# 
+#     # Extrai o primeiro nome de entidade declarado no netlist.
+#     if {[regexp -nocase {ENTITY[ \t\r\n]+([A-Za-z0-9_]+)[ \t\r\n]+IS} $content -> entity_name]} {
+#         return [string tolower $entity_name]
+#     }
+# 
+#     return ""
+# }
+# 
+# proc find_matching_sdf {gate_dir netlist_file} {
+#     set base [file rootname [file tail $netlist_file]]
+#     foreach candidate [list \
+#         [file join $gate_dir ${base}_vhd.sdo] \
+#         [file join $gate_dir ${base}.sdo] \
+#         [file join $gate_dir totalizador_a_vhd.sdo] \
+#         [file join $gate_dir cont_75_vhd.sdo] \
+#         [file join $gate_dir cont_75_vhd_fast.sdo]] {
+#         if {[file exists $candidate]} {
+#             return $candidate
+#         }
+#     }
+#     return ""
+# }
+# 
+# set GATE_NETLIST ""
+# set GATE_SDF ""
+# set FOUND_GATE_ENTITIES ""
+# foreach candidate [list \
+#     [file join $GATE_DIR totalizador_a.vho] \
+#     [file join $GATE_DIR cont_75.vho] \
+#     [file join $GATE_DIR cont_75_fast.vho]] {
+#     if {[file exists $candidate]} {
+#         set candidate_entity [get_vho_entity_name $candidate]
+#         if {$candidate_entity ne ""} {
+#             append FOUND_GATE_ENTITIES "  - [file tail $candidate] => $candidate_entity\n"
+#         } else {
+#             append FOUND_GATE_ENTITIES "  - [file tail $candidate] => (entidade nao identificada)\n"
+#         }
+# 
+#         if {$candidate_entity eq [string tolower $EXPECTED_GATE_ENTITY]} {
+#             set GATE_NETLIST $candidate
+#             set GATE_SDF [find_matching_sdf $GATE_DIR $candidate]
+#             break
+#         }
+#     }
+# }
+# 
+# if {[file exists work]} {
+#     vdel -lib work -all
+# }
+# 
+# vlib work
+# vmap work work
+# Modifying modelsim.ini
+# 
+# switch -- $MODE {
+#     rtl {
+#         if {![file exists $RTL_SOURCE]} {
+#             puts "Arquivo RTL nao encontrado: $RTL_SOURCE"
+#             return
+#         }
+#         if {![file exists $TB_SOURCE]} {
+#             puts "Arquivo TB nao encontrado: $TB_SOURCE"
+#             return
+#         }
+# 
+#         puts "Simulacao RTL totalizador_a"
+#         vcom -93 $RTL_SOURCE
+#         vcom -93 $TB_SOURCE
+#         vsim -t ps -voptargs=+acc work.totalizador_a_tb
+#     }
+#     gate {
+#         if {$GATE_NETLIST eq ""} {
+#             puts "Netlist gate-level compativel nao encontrado em $GATE_DIR"
+#             puts "Esperado: entidade $EXPECTED_GATE_ENTITY"
+#             if {$FOUND_GATE_ENTITIES ne ""} {
+#                 puts "Encontrados:"
+#                 puts -nonewline $FOUND_GATE_ENTITIES
+#             }
+#             return
+#         }
+#         if {$GATE_SDF eq ""} {
+#             puts "Arquivo SDF nao encontrado para netlist: $GATE_NETLIST"
+#             return
+#         }
+#         if {![file exists $TB_SOURCE]} {
+#             puts "Arquivo TB nao encontrado: $TB_SOURCE"
+#             return
+#         }
+# 
+#         puts "Simulacao gate-level totalizador_a"
+#         puts "Usando netlist: $GATE_NETLIST"
+#         puts "Usando SDF: $GATE_SDF"
+#         vcom -93 $GATE_NETLIST
+#         vcom -93 $TB_SOURCE
+#         vsim -t ps -voptargs=+acc -sdfmax /totalizador_a_tb/dut=$GATE_SDF work.totalizador_a_tb
+#     }
+#     default {
+#         puts "Modo invalido: $MODE"
+#         puts "Use: do totalizador_a.do rtl"
+#         puts "Ou:  do totalizador_a.do gate"
+#         return
+#     }
+# }
+# Simulacao gate-level totalizador_a
+# Usando netlist: C:/Users/cjean/Documents/Git/Logica-Reconfiguravel/4/ProjetoQuartus/simulation/modelsim/cont_75.vho
+# Usando SDF: C:/Users/cjean/Documents/Git/Logica-Reconfiguravel/4/ProjetoQuartus/simulation/modelsim/cont_75_vhd.sdo
+# Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package VITAL_Timing
+# -- Loading package VITAL_Primitives
+# -- Loading package cycloneii_atom_pack
+# -- Loading package cycloneii_components
+# -- Compiling entity totalizador_a
+# -- Compiling architecture structure of totalizador_a
+# Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity totalizador_a_tb
+# -- Compiling architecture tb of totalizador_a_tb
+# -- Loading package VITAL_Timing
+# -- Loading package VITAL_Primitives
+# -- Loading package cycloneii_atom_pack
+# -- Loading package cycloneii_components
+# -- Loading entity totalizador_a
+# vsim -voptargs=+acc -sdfmax /totalizador_a_tb/dut=C:/Users/cjean/Documents/Git/Logica-Reconfiguravel/4/ProjetoQuartus/simulation/modelsim/cont_75_vhd.sdo -t ps work.totalizador_a_tb 
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading ieee.vital_timing(body)
+# Loading ieee.vital_primitives(body)
+# Loading cycloneii.cycloneii_atom_pack(body)
+# Loading cycloneii.cycloneii_components
+# Loading work.totalizador_a_tb(tb)
+# Loading work.totalizador_a(structure)
+# Loading cycloneii.cycloneii_lcell_ff(vital_lcell_ff)
+# Loading cycloneii.cycloneii_and1(altvital)
+# Loading cycloneii.cycloneii_lcell_comb(vital_lcell_comb)
+# Loading ieee.std_logic_arith(body)
+# Loading cycloneii.cycloneii_io(structure)
+# Loading cycloneii.cycloneii_mux21(altvital)
+# Loading cycloneii.cycloneii_dffe(behave)
+# Loading cycloneii.cycloneii_asynch_io(behave)
+# Loading cycloneii.cycloneii_clkctrl(vital_clkctrl)
+# Loading cycloneii.cycloneii_ena_reg(behave)
+# Loading instances from C:/Users/cjean/Documents/Git/Logica-Reconfiguravel/4/ProjetoQuartus/simulation/modelsim/cont_75_vhd.sdo
+# Loading timing data from C:/Users/cjean/Documents/Git/Logica-Reconfiguravel/4/ProjetoQuartus/simulation/modelsim/cont_75_vhd.sdo
+# ** Note: (vsim-3587) SDF Backannotation Successfully Completed.
+#    Time: 0 ps  Iteration: 0  Instance: /totalizador_a_tb File: C:/Users/cjean/Documents/Git/Logica-Reconfiguravel/4/ProjetoQuartus/totalizador_a_tb.vhd
+# 
+# add wave -noupdate sim:/totalizador_a_tb/clk
+# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
+# 
+#           File in use by: aguia  Hostname: EMERSONPC  ProcessID: 11720
+# 
+#           Attempting to use alternate WLF file "./wlftaj3v3y".
+# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
+# 
+#           Using alternate file: ./wlftaj3v3y
+# 
+# add wave -noupdate sim:/totalizador_a_tb/rst
+# add wave -noupdate sim:/totalizador_a_tb/en
+# add wave -noupdate sim:/totalizador_a_tb/clr
+# add wave -noupdate sim:/totalizador_a_tb/init
+# add wave -noupdate -radix binary sim:/totalizador_a_tb/inpt
+# add wave -noupdate -radix unsigned sim:/totalizador_a_tb/q
+# add wave -noupdate -radix binary sim:/totalizador_a_tb/dut/val
+# add wave -noupdate -radix unsigned sim:/totalizador_a_tb/dut/count
+# configure wave -namecolwidth 160
+# configure wave -valuecolwidth 100
+# configure wave -timelineunits ns
+# update
+run 1 ms
+quit sim
+# unknown switch: sim
+quit -sim
 do totalizador_b.do
 # 
 # set SCRIPT_FILE [info script]
@@ -47,21 +515,54 @@ do totalizador_b.do
 # C:/Users/cjean/Documents/Git/Logica-Reconfiguravel/4/ProjetoQuartus/totalizador_b_tb.vhd
 # set GATE_DIR [file join $PROJECT_DIR simulation modelsim]
 # C:/Users/cjean/Documents/Git/Logica-Reconfiguravel/4/ProjetoQuartus/simulation/modelsim
+# set EXPECTED_GATE_ENTITY totalizadores_rapidos
+# totalizadores_rapidos
+# 
+# proc get_vho_entity_name {vho_file} {
+#     if {![file exists $vho_file]} {
+#         return ""
+#     }
+# 
+#     set fh [open $vho_file r]
+#     set content [read $fh]
+#     close $fh
+# 
+#     # Extrai o primeiro nome de entidade declarado no netlist.
+#     if {[regexp -nocase {ENTITY[ \t\r\n]+([A-Za-z0-9_]+)[ \t\r\n]+IS} $content -> entity_name]} {
+#         return [string tolower $entity_name]
+#     }
+# 
+#     return ""
+# }
 # 
 # set GATE_NETLIST ""
+# set FOUND_GATE_ENTITIES ""
 # foreach candidate [list \
 #     [file join $GATE_DIR totalizador_b.vho] \
-#     [file join $GATE_DIR totalizadores_rapidos.vho]] {
+#     [file join $GATE_DIR totalizadores_rapidos.vho] \
+#     [file join $GATE_DIR cont_75.vho] \
+#     [file join $GATE_DIR cont_75_fast.vho]] {
 #     if {[file exists $candidate]} {
-#         set GATE_NETLIST $candidate
-#         break
+#         set candidate_entity [get_vho_entity_name $candidate]
+#         if {$candidate_entity ne ""} {
+#             append FOUND_GATE_ENTITIES "  - [file tail $candidate] => $candidate_entity\n"
+#         } else {
+#             append FOUND_GATE_ENTITIES "  - [file tail $candidate] => (entidade nao identificada)\n"
+#         }
+# 
+#         if {$candidate_entity eq [string tolower $EXPECTED_GATE_ENTITY]} {
+#             set GATE_NETLIST $candidate
+#             break
+#         }
 #     }
 # }
 # 
 # set GATE_SDF ""
 # foreach candidate [list \
 #     [file join $GATE_DIR totalizador_b_vhd.sdo] \
-#     [file join $GATE_DIR totalizadores_rapidos_vhd.sdo]] {
+#     [file join $GATE_DIR totalizadores_rapidos_vhd.sdo] \
+#     [file join $GATE_DIR cont_75_vhd.sdo] \
+#     [file join $GATE_DIR cont_75_vhd_fast.sdo]] {
 #     if {[file exists $candidate]} {
 #         set GATE_SDF $candidate
 #         break
@@ -80,11 +581,11 @@ do totalizador_b.do
 #     rtl {
 #         if {![file exists $RTL_SOURCE]} {
 #             puts "Arquivo RTL nao encontrado: $RTL_SOURCE"
-#             quit -f
+#             return
 #         }
 #         if {![file exists $TB_SOURCE]} {
 #             puts "Arquivo TB nao encontrado: $TB_SOURCE"
-#             quit -f
+#             return
 #         }
 # 
 #         puts "Simulacao RTL totalizador_b"
@@ -94,16 +595,21 @@ do totalizador_b.do
 #     }
 #     gate {
 #         if {$GATE_NETLIST eq ""} {
-#             puts "Netlist gate-level nao encontrado em $GATE_DIR"
-#             quit -f
+#             puts "Netlist gate-level compativel nao encontrado em $GATE_DIR"
+#             puts "Esperado: entidade $EXPECTED_GATE_ENTITY"
+#             if {$FOUND_GATE_ENTITIES ne ""} {
+#                 puts "Encontrados:"
+#                 puts -nonewline $FOUND_GATE_ENTITIES
+#             }
+#             return
 #         }
 #         if {$GATE_SDF eq ""} {
 #             puts "Arquivo SDF nao encontrado em $GATE_DIR"
-#             quit -f
+#             return
 #         }
 #         if {![file exists $TB_SOURCE]} {
 #             puts "Arquivo TB nao encontrado: $TB_SOURCE"
-#             quit -f
+#             return
 #         }
 # 
 #         puts "Simulacao gate-level totalizador_b"
@@ -117,7 +623,7 @@ do totalizador_b.do
 #         puts "Modo invalido: $MODE"
 #         puts "Use: do totalizador_b.do rtl"
 #         puts "Ou:  do totalizador_b.do gate"
-#         quit -f
+#         return
 #     }
 # }
 # Simulacao RTL totalizador_b
@@ -149,10 +655,10 @@ do totalizador_b.do
 # 
 #           File in use by: aguia  Hostname: EMERSONPC  ProcessID: 11720
 # 
-#           Attempting to use alternate WLF file "./wlft3q1ifa".
+#           Attempting to use alternate WLF file "./wlftd09k3q".
 # ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
 # 
-#           Using alternate file: ./wlft3q1ifa
+#           Using alternate file: ./wlftd09k3q
 # 
 # add wave -noupdate -radix binary sim:/totalizador_b_tb/inpt
 # add wave -noupdate -radix unsigned sim:/totalizador_b_tb/q_b1_for
@@ -166,4 +672,3 @@ do totalizador_b.do
 # configure wave -timelineunits ns
 # update
 run 1 ms
-# WARNING: No extended dataflow license exists

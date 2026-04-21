@@ -18,21 +18,53 @@ unset -nocomplain ::SIM_MODE
 set RTL_SOURCE [file join $PROJECT_DIR totalizador_b.vhd]
 set TB_SOURCE [file join $PROJECT_DIR totalizador_b_tb.vhd]
 set GATE_DIR [file join $PROJECT_DIR simulation modelsim]
+set EXPECTED_GATE_ENTITY totalizadores_rapidos
+
+proc get_vho_entity_name {vho_file} {
+    if {![file exists $vho_file]} {
+        return ""
+    }
+
+    set fh [open $vho_file r]
+    set content [read $fh]
+    close $fh
+
+    # Extrai o primeiro nome de entidade declarado no netlist.
+    if {[regexp -nocase {ENTITY[ \t\r\n]+([A-Za-z0-9_]+)[ \t\r\n]+IS} $content -> entity_name]} {
+        return [string tolower $entity_name]
+    }
+
+    return ""
+}
 
 set GATE_NETLIST ""
+set FOUND_GATE_ENTITIES ""
 foreach candidate [list \
     [file join $GATE_DIR totalizador_b.vho] \
-    [file join $GATE_DIR totalizadores_rapidos.vho]] {
+    [file join $GATE_DIR totalizadores_rapidos.vho] \
+    [file join $GATE_DIR cont_75.vho] \
+    [file join $GATE_DIR cont_75_fast.vho]] {
     if {[file exists $candidate]} {
-        set GATE_NETLIST $candidate
-        break
+        set candidate_entity [get_vho_entity_name $candidate]
+        if {$candidate_entity ne ""} {
+            append FOUND_GATE_ENTITIES "  - [file tail $candidate] => $candidate_entity\n"
+        } else {
+            append FOUND_GATE_ENTITIES "  - [file tail $candidate] => (entidade nao identificada)\n"
+        }
+
+        if {$candidate_entity eq [string tolower $EXPECTED_GATE_ENTITY]} {
+            set GATE_NETLIST $candidate
+            break
+        }
     }
 }
 
 set GATE_SDF ""
 foreach candidate [list \
     [file join $GATE_DIR totalizador_b_vhd.sdo] \
-    [file join $GATE_DIR totalizadores_rapidos_vhd.sdo]] {
+    [file join $GATE_DIR totalizadores_rapidos_vhd.sdo] \
+    [file join $GATE_DIR cont_75_vhd.sdo] \
+    [file join $GATE_DIR cont_75_vhd_fast.sdo]] {
     if {[file exists $candidate]} {
         set GATE_SDF $candidate
         break
@@ -50,11 +82,11 @@ switch -- $MODE {
     rtl {
         if {![file exists $RTL_SOURCE]} {
             puts "Arquivo RTL nao encontrado: $RTL_SOURCE"
-            quit -f
+            return
         }
         if {![file exists $TB_SOURCE]} {
             puts "Arquivo TB nao encontrado: $TB_SOURCE"
-            quit -f
+            return
         }
 
         puts "Simulacao RTL totalizador_b"
@@ -64,16 +96,21 @@ switch -- $MODE {
     }
     gate {
         if {$GATE_NETLIST eq ""} {
-            puts "Netlist gate-level nao encontrado em $GATE_DIR"
-            quit -f
+            puts "Netlist gate-level compativel nao encontrado em $GATE_DIR"
+            puts "Esperado: entidade $EXPECTED_GATE_ENTITY"
+            if {$FOUND_GATE_ENTITIES ne ""} {
+                puts "Encontrados:"
+                puts -nonewline $FOUND_GATE_ENTITIES
+            }
+            return
         }
         if {$GATE_SDF eq ""} {
             puts "Arquivo SDF nao encontrado em $GATE_DIR"
-            quit -f
+            return
         }
         if {![file exists $TB_SOURCE]} {
             puts "Arquivo TB nao encontrado: $TB_SOURCE"
-            quit -f
+            return
         }
 
         puts "Simulacao gate-level totalizador_b"
@@ -87,7 +124,7 @@ switch -- $MODE {
         puts "Modo invalido: $MODE"
         puts "Use: do totalizador_b.do rtl"
         puts "Ou:  do totalizador_b.do gate"
-        quit -f
+        return
     }
 }
 
