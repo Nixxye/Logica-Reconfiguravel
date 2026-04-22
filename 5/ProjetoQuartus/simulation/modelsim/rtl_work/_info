@@ -1,0 +1,42 @@
+m255
+K3
+13
+cModel Technology
+Z0 dC:\Users\cjean\Documents\Git\Logica-Reconfiguravel\4\ProjetoQuartus\simulation\modelsim
+Etotalizador_a
+Z1 w1776534981
+Z2 DPx4 ieee 11 numeric_std 0 22 O3PF8EB`?j9=z7KT`fn941
+Z3 DPx3 std 6 textio 0 22 5>J:;AW>W0[[dW0I6EN1Q0
+Z4 DPx4 ieee 14 std_logic_1164 0 22 5=aWaoGZSMWIcH0i^f`XF1
+Z5 dC:\Users\cjean\Documents\Git\Logica-Reconfiguravel\4\ProjetoQuartus\simulation\modelsim
+Z6 8C:/Users/cjean/Documents/Git/Logica-Reconfiguravel/4/ProjetoQuartus/totalizador_a.vhd
+Z7 FC:/Users/cjean/Documents/Git/Logica-Reconfiguravel/4/ProjetoQuartus/totalizador_a.vhd
+l0
+L5
+Vz1Jn`^gg8LKk_l^6GnQh30
+!s100 <2Hg8:WTC32zCO8B`V4GO1
+Z8 OV;C;10.1d;51
+31
+!i10b 1
+Z9 !s108 1776535090.917000
+Z10 !s90 -reportprogress|300|-93|-work|work|C:/Users/cjean/Documents/Git/Logica-Reconfiguravel/4/ProjetoQuartus/totalizador_a.vhd|
+Z11 !s107 C:/Users/cjean/Documents/Git/Logica-Reconfiguravel/4/ProjetoQuartus/totalizador_a.vhd|
+Z12 o-93 -work work -O0
+Z13 tExplicit 1
+Abehavioral
+R2
+R3
+R4
+DEx4 work 13 totalizador_a 0 22 z1Jn`^gg8LKk_l^6GnQh30
+l16
+L13
+VZWfTzSdP?B5]KAcJJ85:H3
+!s100 k?hhcIR_km[kC8ZNjm1Rn3
+R8
+31
+!i10b 1
+R9
+R10
+R11
+R12
+R13
