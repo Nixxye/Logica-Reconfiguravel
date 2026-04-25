@@ -18,19 +18,7 @@ end BlockRAM;
 
 architecture Behavioral of BlockRAM is
     type ram_type is array (0 to (2**ADDR_WIDTH)-1) of std_logic_vector(DATA_WIDTH-1 downto 0);
-    
-    -- Função para inicializar a RAM com valores crescentes (0 a 2047)
-    function init_ram return ram_type is
-        variable tmp : ram_type;
-    begin
-        for i in 0 to (2**ADDR_WIDTH)-1 loop
-            -- O valor armazena os 8 bits menos significativos do contador
-            tmp(i) := std_logic_vector(to_unsigned(i mod 256, DATA_WIDTH));
-        end for;
-        return tmp;
-    end init_ram;
-
-    signal ram : ram_type := init_ram;
+    signal ram : ram_type;
 begin
     process(clk)
     begin

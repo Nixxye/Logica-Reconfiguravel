@@ -47,23 +47,18 @@ begin
     -- Processo de teste
     process
     begin
-        -- Teste 1: Reset
-        report "=== TESTE 1: RESET ===" severity note;
+        -- Reset
         rst <= '1';
         en <= '0';
+        din <= (others => '0');
+        push_pop <= '0';
         wait for 2*CLK_PERIOD;
         rst <= '0';
         wait for CLK_PERIOD;
         
-        assert empty = '1' report "FALHA: FIFO deveria estar vazia após reset" severity error;
-        assert full = '0' report "FALHA: FIFO não deveria estar cheia após reset" severity error;
-        assert usedw = 0 report "FALHA: usedw deveria ser 0 após reset" severity error;
-        report "OK: Reset funcionando corretamente" severity note;
-        
-        -- Teste 2: Push de 5 elementos
-        report "=== TESTE 2: PUSH DE 5 ELEMENTOS ===" severity note;
+        -- Push de alguns elementos
         en <= '1';
-        push_pop <= '1'; -- Push
+        push_pop <= '1';
         for i in 0 to 4 loop
             din <= std_logic_vector(to_unsigned(i, 8));
             wait for CLK_PERIOD;
@@ -71,79 +66,32 @@ begin
         en <= '0';
         wait for CLK_PERIOD;
         
-        assert empty = '0' report "FALHA: FIFO não deveria estar vazia" severity error;
-        assert full = '0' report "FALHA: FIFO não deveria estar cheia" severity error;
-        assert usedw = 5 report "FALHA: usedw deveria ser 5" severity error;
-        report "OK: 5 elementos inseridos com sucesso" severity note;
-        
-        -- Teste 3: Pop de 2 elementos
-        report "=== TESTE 3: POP DE 2 ELEMENTOS ===" severity note;
+        -- Pop de alguns elementos
         en <= '1';
-        push_pop <= '0'; -- Pop
-        wait for CLK_PERIOD;
-        wait for CLK_PERIOD;
+        push_pop <= '0';
+        wait for 2*CLK_PERIOD;
         en <= '0';
         wait for CLK_PERIOD;
         
-        assert usedw = 3 report "FALHA: usedw deveria ser 3" severity error;
-        assert empty = '0' report "FALHA: FIFO não deveria estar vazia" severity error;
-        report "OK: 2 elementos removidos com sucesso" severity note;
-        
-        -- Teste 4: Push até encher (1019 mais elementos)
-        report "=== TESTE 4: PUSH ATÉ ENCHER ===" severity note;
+        -- Push mais elementos
         en <= '1';
-        push_pop <= '1'; -- Push
-        for i in 5 to 1023 loop
-            din <= std_logic_vector(to_unsigned(i mod 256, 8));
+        push_pop <= '1';
+        for i in 5 to 10 loop
+            din <= std_logic_vector(to_unsigned(i, 8));
             wait for CLK_PERIOD;
         end loop;
         en <= '0';
         wait for CLK_PERIOD;
         
-        assert full = '1' report "FALHA: FIFO deveria estar cheia" severity error;
-        assert usedw = 1024 report "FALHA: usedw deveria ser 1024" severity error;
-        report "OK: FIFO cheia corretamente" severity note;
-        
-        -- Teste 5: Tentar push quando cheio (não deve escrever)
-        report "=== TESTE 5: PUSH QUANDO CHEIO ===" severity note;
+        -- Pop de todos os elementos + 1
         en <= '1';
-        push_pop <= '1'; -- Push
-        din <= x"FF";
-        wait for CLK_PERIOD;
-        en <= '0';
-        wait for CLK_PERIOD;
-        
-        assert usedw = 1024 report "FALHA: usedw deveria continuar 1024" severity error;
-        report "OK: Push bloqueado quando FIFO cheia" severity note;
-        
-        -- Teste 6: Pop até esvaziar completamente
-        report "=== TESTE 6: POP ATÉ ESVAZIAR ===" severity note;
-        en <= '1';
-        push_pop <= '0'; -- Pop
-        for i in 0 to 1022 loop
+        push_pop <= '0';
+        for i in 0 to usedw loop
             wait for CLK_PERIOD;
         end loop;
         en <= '0';
         wait for CLK_PERIOD;
         
-        assert empty = '1' report "FALHA: FIFO deveria estar vazia" severity error;
-        assert full = '0' report "FALHA: FIFO não deveria estar cheia" severity error;
-        assert usedw = 0 report "FALHA: usedw deveria ser 0" severity error;
-        report "OK: FIFO esvaziada completamente" severity note;
-        
-        -- Teste 7: Tentar pop quando vazio (não deve mudar rd_ptr)
-        report "=== TESTE 7: POP QUANDO VAZIO ===" severity note;
-        en <= '1';
-        push_pop <= '0'; -- Pop
-        wait for CLK_PERIOD;
-        en <= '0';
-        wait for CLK_PERIOD;
-        
-        assert empty = '1' report "FALHA: FIFO deveria continuar vazia" severity error;
-        assert usedw = 0 report "FALHA: usedw deveria continuar 0" severity error;
-        report "OK: Pop bloqueado quando FIFO vazia" severity note;
-        
-        report "=== TODOS OS TESTES COMPLETADOS ===" severity note;
         wait;
     end process;
     

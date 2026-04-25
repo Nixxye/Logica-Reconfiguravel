@@ -2,41 +2,117 @@ m255
 K3
 13
 cModel Technology
-Z0 dC:\Users\cjean\Documents\Git\Logica-Reconfiguravel\4\ProjetoQuartus\simulation\modelsim
-Etotalizador_a
-Z1 w1776534981
+Z0 dC:\Users\cjean\Documents\Git\Logica-Reconfiguravel\5\ProjetoQuartus\simulation\modelsim
+Eblockram
+Z1 w1777133701
 Z2 DPx4 ieee 11 numeric_std 0 22 O3PF8EB`?j9=z7KT`fn941
 Z3 DPx3 std 6 textio 0 22 5>J:;AW>W0[[dW0I6EN1Q0
 Z4 DPx4 ieee 14 std_logic_1164 0 22 5=aWaoGZSMWIcH0i^f`XF1
-Z5 dC:\Users\cjean\Documents\Git\Logica-Reconfiguravel\4\ProjetoQuartus\simulation\modelsim
-Z6 8C:/Users/cjean/Documents/Git/Logica-Reconfiguravel/4/ProjetoQuartus/totalizador_a.vhd
-Z7 FC:/Users/cjean/Documents/Git/Logica-Reconfiguravel/4/ProjetoQuartus/totalizador_a.vhd
+Z5 dC:\Users\cjean\Documents\Git\Logica-Reconfiguravel\5\ProjetoQuartus\simulation\modelsim
+Z6 8C:/Users/cjean/Documents/Git/Logica-Reconfiguravel/5/ProjetoQuartus/BlockRAM.vhd
+Z7 FC:/Users/cjean/Documents/Git/Logica-Reconfiguravel/5/ProjetoQuartus/BlockRAM.vhd
 l0
 L5
-Vz1Jn`^gg8LKk_l^6GnQh30
-!s100 <2Hg8:WTC32zCO8B`V4GO1
+VO_<>X99XAUU9;;lL]QWn43
 Z8 OV;C;10.1d;51
 31
-!i10b 1
-Z9 !s108 1776535090.917000
-Z10 !s90 -reportprogress|300|-93|-work|work|C:/Users/cjean/Documents/Git/Logica-Reconfiguravel/4/ProjetoQuartus/totalizador_a.vhd|
-Z11 !s107 C:/Users/cjean/Documents/Git/Logica-Reconfiguravel/4/ProjetoQuartus/totalizador_a.vhd|
+Z9 !s108 1777144589.578000
+Z10 !s90 -reportprogress|300|-93|-work|work|C:/Users/cjean/Documents/Git/Logica-Reconfiguravel/5/ProjetoQuartus/BlockRAM.vhd|
+Z11 !s107 C:/Users/cjean/Documents/Git/Logica-Reconfiguravel/5/ProjetoQuartus/BlockRAM.vhd|
 Z12 o-93 -work work -O0
 Z13 tExplicit 1
+!s100 Wcm_[17I^1bacgNg<K:8a1
+!i10b 1
 Abehavioral
 R2
 R3
 R4
-DEx4 work 13 totalizador_a 0 22 z1Jn`^gg8LKk_l^6GnQh30
-l16
-L13
-VZWfTzSdP?B5]KAcJJ85:H3
-!s100 k?hhcIR_km[kC8ZNjm1Rn3
+Z14 DEx4 work 8 blockram 0 22 O_<>X99XAUU9;;lL]QWn43
+l22
+L19
+VLKlo7kbg;KQhZ=C?]9i1N1
 R8
 31
-!i10b 1
 R9
 R10
 R11
+R12
+R13
+!s100 SQT[BPM6ifZgLU[;G:X`N1
+!i10b 1
+Efifo
+Z15 w1776894079
+R2
+R3
+R4
+R5
+Z16 8C:/Users/cjean/Documents/Git/Logica-Reconfiguravel/5/ProjetoQuartus/FIFO.vhd
+Z17 FC:/Users/cjean/Documents/Git/Logica-Reconfiguravel/5/ProjetoQuartus/FIFO.vhd
+l0
+L5
+Vz=NHj3W0LAN6C6^63K2n53
+R8
+31
+Z18 !s108 1777144589.522000
+Z19 !s90 -reportprogress|300|-93|-work|work|C:/Users/cjean/Documents/Git/Logica-Reconfiguravel/5/ProjetoQuartus/FIFO.vhd|
+Z20 !s107 C:/Users/cjean/Documents/Git/Logica-Reconfiguravel/5/ProjetoQuartus/FIFO.vhd|
+R12
+R13
+!s100 `Q@oX`]bg]FVI3D4O?`Dl3
+!i10b 1
+Abehavioral
+R2
+R3
+R4
+Z21 DEx4 work 4 fifo 0 22 z=NHj3W0LAN6C6^63K2n53
+l25
+L19
+VenJAmT=h@9XfZcDz:P4ZP2
+R8
+31
+R18
+R19
+R20
+R12
+R13
+!s100 dS_JEF[XTN@2mh^51?7jU2
+!i10b 1
+Esistema_fluxo
+R15
+R2
+R3
+R4
+R5
+Z22 8C:/Users/cjean/Documents/Git/Logica-Reconfiguravel/5/ProjetoQuartus/sistema_fluxo.vhd
+Z23 FC:/Users/cjean/Documents/Git/Logica-Reconfiguravel/5/ProjetoQuartus/sistema_fluxo.vhd
+l0
+L5
+VCZ=a1IA@[NKiGNcfhe;>[0
+!s100 Y3;Fm>>LFG@`ie?_29]Q80
+R8
+31
+!i10b 1
+Z24 !s108 1777144589.636000
+Z25 !s90 -reportprogress|300|-93|-work|work|C:/Users/cjean/Documents/Git/Logica-Reconfiguravel/5/ProjetoQuartus/sistema_fluxo.vhd|
+Z26 !s107 C:/Users/cjean/Documents/Git/Logica-Reconfiguravel/5/ProjetoQuartus/sistema_fluxo.vhd|
+R12
+R13
+Astructural
+R21
+R14
+R2
+R3
+R4
+DEx4 work 13 sistema_fluxo 0 22 CZ=a1IA@[NKiGNcfhe;>[0
+l35
+L13
+V^[1ka^M7EcJzb5X4XW>nR2
+!s100 H?io9eDbODSe7UD8KC:0g2
+R8
+31
+!i10b 1
+R24
+R25
+R26
 R12
 R13

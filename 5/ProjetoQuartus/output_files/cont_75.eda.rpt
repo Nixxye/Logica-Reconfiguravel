@@ -1,5 +1,5 @@
 EDA Netlist Writer report for cont_75
-Tue Apr 21 18:23:48 2026
+Sat Apr 25 13:15:38 2026
 Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
 
 
@@ -36,9 +36,9 @@ applicable agreement for further details.
 +-------------------------------------------------------------------+
 ; EDA Netlist Writer Summary                                        ;
 +---------------------------+---------------------------------------+
-; EDA Netlist Writer Status ; Successful - Tue Apr 21 18:23:48 2026 ;
+; EDA Netlist Writer Status ; Successful - Sat Apr 25 13:15:38 2026 ;
 ; Revision Name             ; cont_75                               ;
-; Top-level Entity Name     ; totalizadores_rapidos                 ;
+; Top-level Entity Name     ; sistema_fluxo                         ;
 ; Family                    ; Cyclone II                            ;
 ; Simulation Files Creation ; Successful                            ;
 +---------------------------+---------------------------------------+
@@ -71,10 +71,10 @@ applicable agreement for further details.
 +--------------------------------------------------------------------------------------------------------------+
 ; Generated Files                                                                                              ;
 +--------------------------------------------------------------------------------------------------------------+
-; C:/Users/cjean/Documents/Git/Logica-Reconfiguravel/4/ProjetoQuartus/simulation/modelsim/cont_75.vho          ;
-; C:/Users/cjean/Documents/Git/Logica-Reconfiguravel/4/ProjetoQuartus/simulation/modelsim/cont_75_fast.vho     ;
-; C:/Users/cjean/Documents/Git/Logica-Reconfiguravel/4/ProjetoQuartus/simulation/modelsim/cont_75_vhd.sdo      ;
-; C:/Users/cjean/Documents/Git/Logica-Reconfiguravel/4/ProjetoQuartus/simulation/modelsim/cont_75_vhd_fast.sdo ;
+; C:/Users/cjean/Documents/Git/Logica-Reconfiguravel/5/ProjetoQuartus/simulation/modelsim/cont_75.vho          ;
+; C:/Users/cjean/Documents/Git/Logica-Reconfiguravel/5/ProjetoQuartus/simulation/modelsim/cont_75_fast.vho     ;
+; C:/Users/cjean/Documents/Git/Logica-Reconfiguravel/5/ProjetoQuartus/simulation/modelsim/cont_75_vhd.sdo      ;
+; C:/Users/cjean/Documents/Git/Logica-Reconfiguravel/5/ProjetoQuartus/simulation/modelsim/cont_75_vhd_fast.sdo ;
 +--------------------------------------------------------------------------------------------------------------+
 
 
@@ -84,12 +84,12 @@ applicable agreement for further details.
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit EDA Netlist Writer
     Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
-    Info: Processing started: Tue Apr 21 18:23:48 2026
+    Info: Processing started: Sat Apr 25 13:15:38 2026
 Info: Command: quartus_eda --read_settings_files=off --write_settings_files=off cont_75 -c cont_75
-Info (204026): Generated files "cont_75.vho", "cont_75_fast.vho", "cont_75_vhd.sdo" and "cont_75_vhd_fast.sdo" in directory "C:/Users/cjean/Documents/Git/Logica-Reconfiguravel/4/ProjetoQuartus/simulation/modelsim/" for EDA simulation tool
+Info (204026): Generated files "cont_75.vho", "cont_75_fast.vho", "cont_75_vhd.sdo" and "cont_75_vhd_fast.sdo" in directory "C:/Users/cjean/Documents/Git/Logica-Reconfiguravel/5/ProjetoQuartus/simulation/modelsim/" for EDA simulation tool
 Info: Quartus II 64-Bit EDA Netlist Writer was successful. 0 errors, 0 warnings
     Info: Peak virtual memory: 4534 megabytes
-    Info: Processing ended: Tue Apr 21 18:23:48 2026
+    Info: Processing ended: Sat Apr 25 13:15:38 2026
     Info: Elapsed time: 00:00:00
     Info: Total CPU time (on all processors): 00:00:00
 

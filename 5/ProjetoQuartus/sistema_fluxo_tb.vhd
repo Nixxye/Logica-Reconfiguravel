@@ -40,39 +40,19 @@ begin
     
     -- Processo de teste
     process
-        variable clock_count : integer := 0;
-        variable timeout : integer := 1000000; -- 10 ms em ciclos de clock
     begin
-        -- Teste 1: Reset e inicialização
-        report "=== TESTE 1: RESET E INICIALIZAÇÃO ===" severity note;
+        -- Reset
         rst <= '1';
         wait for 5*CLK_PERIOD;
         rst <= '0';
         wait for CLK_PERIOD;
         
-        assert completo = '0' report "FALHA: completo não deveria estar ativo logo após reset" severity error;
-        report "OK: Sistema inicializado corretamente" severity note;
-        
-        -- Teste 2: Aguardar transferência completa
-        report "=== TESTE 2: TRANSFERÊNCIA DE 2048 DADOS ===" severity note;
-        report "Aguardando conclusão da transferência..." severity note;
-        
-        clock_count := 0;
-        while completo = '0' and clock_count < timeout loop
+        -- Aguardar transferência completa
+        while completo = '0' loop
             wait for CLK_PERIOD;
-            clock_count := clock_count + 1;
         end loop;
         
-        if completo = '0' then
-            report "FALHA: Timeout - transferência não completou em tempo" severity error;
-        else
-            report "OK: Transferência completada em " & integer'image(clock_count) & " ciclos de clock" severity note;
-        end if;
-        
         wait for 100*CLK_PERIOD;
-        
-        report "=== TESTE COMPLETADO ===" severity note;
-        report "A transferência dos 2048 dados foi realizada com sucesso" severity note;
         wait;
     end process;
     

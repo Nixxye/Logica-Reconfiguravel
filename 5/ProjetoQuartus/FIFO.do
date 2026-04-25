@@ -26,9 +26,3 @@ add wave -noupdate -group "Status" /FIFO_tb/usedw
 add wave -noupdate -group "Internal" /FIFO_tb/UUT/wr_ptr
 add wave -noupdate -group "Internal" /FIFO_tb/UUT/rd_ptr
 add wave -noupdate -group "Internal" /FIFO_tb/UUT/count
-
-# Rodar simulação
-run -all
-
-# Fechar
-quit -f
