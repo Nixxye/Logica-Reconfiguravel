@@ -19,9 +19,3 @@ add wave -noupdate -group "Control" /BlockRAM_tb/we
 add wave -noupdate -group "Address" /BlockRAM_tb/addr
 add wave -noupdate -group "Data" /BlockRAM_tb/di
 add wave -noupdate -group "Data" /BlockRAM_tb/do
-
-# Rodar simulação
-run -all
-
-# Fechar
-quit -f

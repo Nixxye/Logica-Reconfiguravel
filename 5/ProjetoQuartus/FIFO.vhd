@@ -4,15 +4,15 @@ use IEEE.NUMERIC_STD.ALL;
 
 entity FIFO is
     port (
-        clk      : in  std_logic;
-        rst      : in  std_logic;
-        din      : in  std_logic_vector(7 downto 0);
-        dout     : out std_logic_vector(7 downto 0);
-        en       : in  std_logic;
-        push_pop : in  std_logic; -- '1' para push, '0' para pop
-        empty    : out std_logic;
-        full     : out std_logic;
-        usedw    : out integer range 0 to 1024
+        clk           : in  std_logic;
+        rst           : in  std_logic;
+        din           : in  std_logic_vector(7 downto 0);
+        dout          : out std_logic_vector(7 downto 0);
+        write_enable  : in  std_logic;  -- '1' para escrever (push)
+        read_enable   : in  std_logic;  -- '1' para ler (pop)
+        empty         : out std_logic;
+        full          : out std_logic;
+        usedw         : out integer range 0 to 1024
     );
 end FIFO;
 
@@ -30,17 +30,36 @@ begin
             rd_ptr <= 0;
             count <= 0;
         elsif rising_edge(clk) then
-            if en = '1' then
-                -- Escrita (Push)
-                if push_pop = '1' and count < 1024 then
-                    memory(wr_ptr) <= din;
-                    wr_ptr <= (wr_ptr + 1) mod 1024;
-                    count <= count + 1;
-                -- Leitura (Pop)
-                elsif push_pop = '0' and count > 0 then
-                    rd_ptr <= (rd_ptr + 1) mod 1024;
+            -- Escrita (Push) - quando count < 1024
+            if write_enable = '1' and count < 1024 then
+                memory(wr_ptr) <= din;
+                wr_ptr <= (wr_ptr + 1) mod 1024;
+            end if;
+            
+            -- Leitura (Pop) - quando count > 0
+            if read_enable = '1' and count > 0 then
+                rd_ptr <= (rd_ptr + 1) mod 1024;
+            end if;
+            
+            -- Atualizar count baseado nas operações
+            if write_enable = '1' and read_enable = '1' then
+                -- Ambas simultâneas
+                if (count < 1024) and (count > 0) then
+                    -- Ambas conseguem operar: count permanece igual
+                    count <= count;
+                elsif count = 1024 then
+                    -- FIFO cheia: pop ocorre, count decrementa
                     count <= count - 1;
+                elsif count = 0 then
+                    -- FIFO vazia: push ocorre, count incrementa
+                    count <= count + 1;
                 end if;
+            elsif write_enable = '1' and count < 1024 then
+                -- Apenas push
+                count <= count + 1;
+            elsif read_enable = '1' and count > 0 then
+                -- Apenas pop
+                count <= count - 1;
             end if;
         end if;
     end process;

@@ -40,10 +40,17 @@
 cd C:/Users/cjean/Documents/Git/Logica-Reconfiguravel/5/ProjetoQuartus
 # reading modelsim.ini
 
-do FIFO.do
+do sistema_fluxo.do
 # ** Warning: (vlib-34) Library already exists at "work".
 # 
 # Modifying modelsim.ini
+# Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity BlockRAM
+# -- Compiling architecture Behavioral of BlockRAM
 # Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -56,30 +63,49 @@ do FIFO.do
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
 # -- Loading package NUMERIC_STD
-# -- Compiling entity FIFO_tb
-# -- Compiling architecture tb of FIFO_tb
+# -- Compiling entity sistema_fluxo
+# -- Compiling architecture structural of sistema_fluxo
+# -- Loading entity BlockRAM
 # -- Loading entity FIFO
-# vsim -voptargs=\"+acc\" -t 1ps work.FIFO_tb 
+# Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity sistema_fluxo_tb
+# -- Compiling architecture tb of sistema_fluxo_tb
+# -- Loading entity sistema_fluxo
+# vsim -voptargs=\"+acc\" -t 1ps work.sistema_fluxo_tb 
 # Loading std.standard
 # Loading std.textio(body)
 # Loading ieee.std_logic_1164(body)
 # Loading ieee.numeric_std(body)
-# Loading work.fifo_tb(tb)
+# Loading work.sistema_fluxo_tb(tb)
+# Loading work.sistema_fluxo(structural)
+# Loading work.blockram(behavioral)
 # Loading work.fifo(behavioral)
 # ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
 # 
 #           File in use by: aguia  Hostname: EMERSONPC  ProcessID: 11720
 # 
-#           Attempting to use alternate WLF file "./wlftjzq6if".
+#           Attempting to use alternate WLF file "./wlft699awt".
 # ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
 # 
-#           Using alternate file: ./wlftjzq6if
+#           Using alternate file: ./wlft699awt
 # 
-run 1 ms
-do FIFO.do
+run 1 sec
+run 10 ms
+do sistema_fluxo.do
 # ** Warning: (vlib-34) Library already exists at "work".
 # 
 # Modifying modelsim.ini
+# Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity BlockRAM
+# -- Compiling architecture Behavioral of BlockRAM
 # Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -92,23 +118,363 @@ do FIFO.do
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
 # -- Loading package NUMERIC_STD
-# -- Compiling entity FIFO_tb
-# -- Compiling architecture tb of FIFO_tb
+# -- Compiling entity sistema_fluxo
+# -- Compiling architecture structural of sistema_fluxo
+# -- Loading entity BlockRAM
 # -- Loading entity FIFO
-# vsim -voptargs=\"+acc\" -t 1ps work.FIFO_tb 
+# Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity sistema_fluxo_tb
+# -- Compiling architecture tb of sistema_fluxo_tb
+# -- Loading entity sistema_fluxo
+# vsim -voptargs=\"+acc\" -t 1ps work.sistema_fluxo_tb 
 # Loading std.standard
 # Loading std.textio(body)
 # Loading ieee.std_logic_1164(body)
 # Loading ieee.numeric_std(body)
-# Loading work.fifo_tb(tb)
+# Loading work.sistema_fluxo_tb(tb)
+# Loading work.sistema_fluxo(structural)
+# Loading work.blockram(behavioral)
 # Loading work.fifo(behavioral)
 # ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
 # 
 #           File in use by: aguia  Hostname: EMERSONPC  ProcessID: 11720
 # 
-#           Attempting to use alternate WLF file "./wlfty1bf58".
+#           Attempting to use alternate WLF file "./wlftrdk8bc".
 # ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
 # 
-#           Using alternate file: ./wlfty1bf58
+#           Using alternate file: ./wlftrdk8bc
 # 
-run 1 ms
+run 10 ms
+do sistema_fluxo.do
+# ** Warning: (vlib-34) Library already exists at "work".
+# 
+# Modifying modelsim.ini
+# Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity BlockRAM
+# -- Compiling architecture Behavioral of BlockRAM
+# Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity FIFO
+# -- Compiling architecture Behavioral of FIFO
+# Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity sistema_fluxo
+# -- Compiling architecture structural of sistema_fluxo
+# -- Loading entity BlockRAM
+# -- Loading entity FIFO
+# ** Error: sistema_fluxo.vhd(217): (vcom-1136) Unknown identifier "RD_COMPLETE".
+# 
+# ** Error: sistema_fluxo.vhd(242): (vcom-1136) Unknown identifier "WR_COMPLETE".
+# 
+# ** Error: sistema_fluxo.vhd(242): Choice in ordinary CASE statement alternative must be locally static.
+# ** Error: sistema_fluxo.vhd(253): (vcom-1136) Unknown identifier "RD_COMPLETE".
+# 
+# ** Error: sistema_fluxo.vhd(253): Choice in ordinary CASE statement alternative must be locally static.
+# ** Warning: [14] sistema_fluxo.vhd(154): (vcom-1272) Length of expected is 8; length of actual is 11.
+# 
+# ** Warning: [14] sistema_fluxo.vhd(242): (vcom-1144) Value 4 (of type std.STANDARD.INTEGER) is out of range 0 to 3.
+# 
+# ** Warning: [14] sistema_fluxo.vhd(253): (vcom-1144) Value 3 (of type std.STANDARD.INTEGER) is out of range 0 to 2.
+# 
+# ** Error: sistema_fluxo.vhd(258): VHDL Compiler exiting
+# ** Error: C:/altera/13.0sp1/modelsim_ase/win32aloem/vcom failed.
+# Error in macro ./sistema_fluxo.do line 12
+# C:/altera/13.0sp1/modelsim_ase/win32aloem/vcom failed.
+#     while executing
+# "vcom -2008 sistema_fluxo.vhd"
+do sistema_fluxo.do
+# ** Warning: (vlib-34) Library already exists at "work".
+# 
+# Modifying modelsim.ini
+# Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity BlockRAM
+# -- Compiling architecture Behavioral of BlockRAM
+# Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity FIFO
+# -- Compiling architecture Behavioral of FIFO
+# Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity sistema_fluxo
+# -- Compiling architecture structural of sistema_fluxo
+# -- Loading entity BlockRAM
+# -- Loading entity FIFO
+# Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity sistema_fluxo_tb
+# -- Compiling architecture tb of sistema_fluxo_tb
+# -- Loading entity sistema_fluxo
+# vsim -voptargs=\"+acc\" -t 1ps work.sistema_fluxo_tb 
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.sistema_fluxo_tb(tb)
+# Loading work.sistema_fluxo(structural)
+# Loading work.blockram(behavioral)
+# Loading work.fifo(behavioral)
+# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
+# 
+#           File in use by: aguia  Hostname: EMERSONPC  ProcessID: 11720
+# 
+#           Attempting to use alternate WLF file "./wlft8at36z".
+# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
+# 
+#           Using alternate file: ./wlft8at36z
+# 
+run 10 ms
+# ** Fatal: (vsim-3421) Value 4 for state_wr_out is out of range 0 to 3.
+#    Time: 20555 ns  Iteration: 3  Signal: /sistema_fluxo_tb/state_wr File: sistema_fluxo_tb.vhd Line: 14
+# Fatal error at an unknown location
+# 
+# HDL call sequence:
+# Stopped at sistema_fluxo_tb.vhd 79 Process line__61
+# 
+run 500 ms
+# Cannot continue because of fatal error.
+# HDL call sequence:
+# Stopped at sistema_fluxo_tb.vhd 79 Process line__61
+# 
+do sistema_fluxo.do
+# ** Warning: (vlib-34) Library already exists at "work".
+# 
+# Modifying modelsim.ini
+# Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity BlockRAM
+# -- Compiling architecture Behavioral of BlockRAM
+# Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity FIFO
+# -- Compiling architecture Behavioral of FIFO
+# Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity sistema_fluxo
+# -- Compiling architecture structural of sistema_fluxo
+# -- Loading entity BlockRAM
+# -- Loading entity FIFO
+# Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity sistema_fluxo_tb
+# -- Compiling architecture tb of sistema_fluxo_tb
+# -- Loading entity sistema_fluxo
+# vsim -voptargs=\"+acc\" -t 1ps work.sistema_fluxo_tb 
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.sistema_fluxo_tb(tb)
+# Loading work.sistema_fluxo(structural)
+# Loading work.blockram(behavioral)
+# Loading work.fifo(behavioral)
+# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
+# 
+#           File in use by: aguia  Hostname: EMERSONPC  ProcessID: 11720
+# 
+#           Attempting to use alternate WLF file "./wlft1kvaee".
+# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
+# 
+#           Using alternate file: ./wlft1kvaee
+# 
+run 100 ms
+do sistema_fluxo.do
+# ** Warning: (vlib-34) Library already exists at "work".
+# 
+# Modifying modelsim.ini
+# Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity BlockRAM
+# -- Compiling architecture Behavioral of BlockRAM
+# Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity FIFO
+# -- Compiling architecture Behavioral of FIFO
+# Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity sistema_fluxo
+# -- Compiling architecture structural of sistema_fluxo
+# -- Loading entity BlockRAM
+# -- Loading entity FIFO
+# Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity sistema_fluxo_tb
+# -- Compiling architecture tb of sistema_fluxo_tb
+# -- Loading entity sistema_fluxo
+# vsim -voptargs=\"+acc\" -t 1ps work.sistema_fluxo_tb 
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.sistema_fluxo_tb(tb)
+# Loading work.sistema_fluxo(structural)
+# Loading work.blockram(behavioral)
+# Loading work.fifo(behavioral)
+# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
+# 
+#           File in use by: aguia  Hostname: EMERSONPC  ProcessID: 11720
+# 
+#           Attempting to use alternate WLF file "./wlftgtdizc".
+# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
+# 
+#           Using alternate file: ./wlftgtdizc
+# 
+run 10 ms
+do sistema_fluxo.do
+# ** Warning: (vlib-34) Library already exists at "work".
+# 
+# Modifying modelsim.ini
+# Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity BlockRAM
+# -- Compiling architecture Behavioral of BlockRAM
+# Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity FIFO
+# -- Compiling architecture Behavioral of FIFO
+# Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity sistema_fluxo
+# -- Compiling architecture structural of sistema_fluxo
+# -- Loading entity BlockRAM
+# -- Loading entity FIFO
+# Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity sistema_fluxo_tb
+# -- Compiling architecture tb of sistema_fluxo_tb
+# -- Loading entity sistema_fluxo
+# vsim -voptargs=\"+acc\" -t 1ps work.sistema_fluxo_tb 
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.sistema_fluxo_tb(tb)
+# Loading work.sistema_fluxo(structural)
+# Loading work.blockram(behavioral)
+# Loading work.fifo(behavioral)
+# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
+# 
+#           File in use by: aguia  Hostname: EMERSONPC  ProcessID: 11720
+# 
+#           Attempting to use alternate WLF file "./wlft4ra4fw".
+# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
+# 
+#           Using alternate file: ./wlft4ra4fw
+# 
+run 10 ms
+do sistema_fluxo.do
+# ** Warning: (vlib-34) Library already exists at "work".
+# 
+# Modifying modelsim.ini
+# Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity BlockRAM
+# -- Compiling architecture Behavioral of BlockRAM
+# Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity FIFO
+# -- Compiling architecture Behavioral of FIFO
+# Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity sistema_fluxo
+# -- Compiling architecture structural of sistema_fluxo
+# -- Loading entity BlockRAM
+# -- Loading entity FIFO
+# Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Compiling entity sistema_fluxo_tb
+# -- Compiling architecture tb of sistema_fluxo_tb
+# -- Loading entity sistema_fluxo
+# vsim -voptargs=\"+acc\" -t 1ps work.sistema_fluxo_tb 
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.sistema_fluxo_tb(tb)
+# Loading work.sistema_fluxo(structural)
+# Loading work.blockram(behavioral)
+# Loading work.fifo(behavioral)
+# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
+# 
+#           File in use by: aguia  Hostname: EMERSONPC  ProcessID: 11720
+# 
+#           Attempting to use alternate WLF file "./wlftqg8aev".
+# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
+# 
+#           Using alternate file: ./wlftqg8aev
+# 
+run 10 ms

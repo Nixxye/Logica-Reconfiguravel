@@ -1,5 +1,5 @@
 Analysis & Synthesis report for cont_75
-Sat Apr 25 13:15:25 2026
+Tue Apr 28 18:42:27 2026
 Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
 
 
@@ -10,21 +10,7 @@ Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edit
   2. Analysis & Synthesis Summary
   3. Analysis & Synthesis Settings
   4. Parallel Compilation
-  5. Analysis & Synthesis Source Files Read
-  6. Analysis & Synthesis Resource Usage Summary
-  7. Analysis & Synthesis Resource Utilization by Entity
-  8. State Machine - |sistema_fluxo|state_rd
-  9. State Machine - |sistema_fluxo|state_wr
- 10. Registers Removed During Synthesis
- 11. General Register Statistics
- 12. Multiplexer Restructuring Statistics (Restructuring Performed)
- 13. Parameter Settings for User Entity Instance: BlockRAM:BRAM1
- 14. Parameter Settings for User Entity Instance: BlockRAM:BRAM2
- 15. Port Connectivity Checks: "BlockRAM:BRAM2"
- 16. Port Connectivity Checks: "FIFO:FILA"
- 17. Port Connectivity Checks: "BlockRAM:BRAM1"
- 18. Elapsed Time Per Partition
- 19. Analysis & Synthesis Messages
+  5. Analysis & Synthesis Messages
 
 
 
@@ -50,20 +36,20 @@ applicable agreement for further details.
 +--------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                         ;
 +------------------------------------+-------------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Sat Apr 25 13:15:25 2026           ;
+; Analysis & Synthesis Status        ; Failed - Tue Apr 28 18:42:27 2026               ;
 ; Quartus II 64-Bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition ;
 ; Revision Name                      ; cont_75                                         ;
 ; Top-level Entity Name              ; sistema_fluxo                                   ;
 ; Family                             ; Cyclone II                                      ;
-; Total logic elements               ; 64                                              ;
-;     Total combinational functions  ; 63                                              ;
-;     Dedicated logic registers      ; 42                                              ;
-; Total registers                    ; 42                                              ;
-; Total pins                         ; 3                                               ;
-; Total virtual pins                 ; 0                                               ;
-; Total memory bits                  ; 0                                               ;
-; Embedded Multiplier 9-bit elements ; 0                                               ;
-; Total PLLs                         ; 0                                               ;
+; Total logic elements               ; N/A until Partition Merge                       ;
+;     Total combinational functions  ; N/A until Partition Merge                       ;
+;     Dedicated logic registers      ; N/A until Partition Merge                       ;
+; Total registers                    ; N/A until Partition Merge                       ;
+; Total pins                         ; N/A until Partition Merge                       ;
+; Total virtual pins                 ; N/A until Partition Merge                       ;
+; Total memory bits                  ; N/A until Partition Merge                       ;
+; Embedded Multiplier 9-bit elements ; N/A until Partition Merge                       ;
+; Total PLLs                         ; N/A until Partition Merge                       ;
 +------------------------------------+-------------------------------------------------+
 
 
@@ -163,188 +149,13 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +----------------------------+--------+
 
 
-+------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                                 ;
-+----------------------------------+-----------------+-----------------+---------------------------------------------------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                                                          ; Library ;
-+----------------------------------+-----------------+-----------------+---------------------------------------------------------------------------------------+---------+
-; sistema_fluxo.vhd                ; yes             ; User VHDL File  ; C:/Users/cjean/Documents/Git/Logica-Reconfiguravel/5/ProjetoQuartus/sistema_fluxo.vhd ;         ;
-; FIFO.vhd                         ; yes             ; User VHDL File  ; C:/Users/cjean/Documents/Git/Logica-Reconfiguravel/5/ProjetoQuartus/FIFO.vhd          ;         ;
-; BlockRAM.vhd                     ; yes             ; User VHDL File  ; C:/Users/cjean/Documents/Git/Logica-Reconfiguravel/5/ProjetoQuartus/BlockRAM.vhd      ;         ;
-+----------------------------------+-----------------+-----------------+---------------------------------------------------------------------------------------+---------+
-
-
-+-----------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary         ;
-+---------------------------------------------+-------+
-; Resource                                    ; Usage ;
-+---------------------------------------------+-------+
-; Estimated Total logic elements              ; 64    ;
-;                                             ;       ;
-; Total combinational functions               ; 63    ;
-; Logic element usage by number of LUT inputs ;       ;
-;     -- 4 input functions                    ; 19    ;
-;     -- 3 input functions                    ; 22    ;
-;     -- <=2 input functions                  ; 22    ;
-;                                             ;       ;
-; Logic elements by mode                      ;       ;
-;     -- normal mode                          ; 35    ;
-;     -- arithmetic mode                      ; 28    ;
-;                                             ;       ;
-; Total registers                             ; 42    ;
-;     -- Dedicated logic registers            ; 42    ;
-;     -- I/O registers                        ; 0     ;
-;                                             ;       ;
-; I/O pins                                    ; 3     ;
-; Embedded Multiplier 9-bit elements          ; 0     ;
-; Maximum fan-out node                        ; clk   ;
-; Maximum fan-out                             ; 42    ;
-; Total fan-out                               ; 344   ;
-; Average fan-out                             ; 3.19  ;
-+---------------------------------------------+-------+
-
-
-+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                              ;
-+----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+--------------------------+--------------+
-; Compilation Hierarchy Node ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name      ; Library Name ;
-+----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+--------------------------+--------------+
-; |sistema_fluxo             ; 63 (45)           ; 42 (31)      ; 0           ; 0            ; 0       ; 0         ; 3    ; 0            ; |sistema_fluxo           ; work         ;
-;    |FIFO:FILA|             ; 18 (18)           ; 11 (11)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sistema_fluxo|FIFO:FILA ; work         ;
-+----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+--------------------------+--------------+
-Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
-
-
-Encoding Type:  One-Hot
-+------------------------------------------------------------------------+
-; State Machine - |sistema_fluxo|state_rd                                ;
-+------------------+------------------+------------------+---------------+
-; Name             ; state_rd.RD_WAIT ; state_rd.RD_FIFO ; state_rd.IDLE ;
-+------------------+------------------+------------------+---------------+
-; state_rd.IDLE    ; 0                ; 0                ; 0             ;
-; state_rd.RD_FIFO ; 0                ; 1                ; 1             ;
-; state_rd.RD_WAIT ; 1                ; 0                ; 1             ;
-+------------------+------------------+------------------+---------------+
-
-
-Encoding Type:  One-Hot
-+------------------------------------------------------------------------------------------------+
-; State Machine - |sistema_fluxo|state_wr                                                        ;
-+--------------------+------------------+------------------+--------------------+----------------+
-; Name               ; state_wr.WR_WAIT ; state_wr.WR_FIFO ; state_wr.LOAD_BRAM ; state_wr.RESET ;
-+--------------------+------------------+------------------+--------------------+----------------+
-; state_wr.RESET     ; 0                ; 0                ; 0                  ; 0              ;
-; state_wr.LOAD_BRAM ; 0                ; 0                ; 1                  ; 1              ;
-; state_wr.WR_FIFO   ; 0                ; 1                ; 0                  ; 1              ;
-; state_wr.WR_WAIT   ; 1                ; 0                ; 0                  ; 1              ;
-+--------------------+------------------+------------------+--------------------+----------------+
-
-
-+--------------------------------------------------------------------------------+
-; Registers Removed During Synthesis                                             ;
-+---------------------------------------+----------------------------------------+
-; Register name                         ; Reason for Removal                     ;
-+---------------------------------------+----------------------------------------+
-; state_wr.LOAD_BRAM                    ; Stuck at GND due to stuck port data_in ;
-; state_rd.RD_WAIT                      ; Lost fanout                            ;
-; Total Number of Removed Registers = 2 ;                                        ;
-+---------------------------------------+----------------------------------------+
-
-
-+------------------------------------------------------+
-; General Register Statistics                          ;
-+----------------------------------------------+-------+
-; Statistic                                    ; Value ;
-+----------------------------------------------+-------+
-; Total registers                              ; 42    ;
-; Number of registers using Synchronous Clear  ; 0     ;
-; Number of registers using Synchronous Load   ; 0     ;
-; Number of registers using Asynchronous Clear ; 42    ;
-; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 34    ;
-; Number of registers using Preset             ; 0     ;
-+----------------------------------------------+-------+
-
-
-+-------------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                  ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------+
-; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output        ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------+
-; 3:1                ; 11 bits   ; 22 LEs        ; 0 LEs                ; 22 LEs                 ; Yes        ; |sistema_fluxo|FIFO:FILA|count[0] ;
-; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; No         ; |sistema_fluxo|state_wr           ;
-; 5:1                ; 3 bits    ; 9 LEs         ; 6 LEs                ; 3 LEs                  ; No         ; |sistema_fluxo|Selector4          ;
-; 7:1                ; 2 bits    ; 8 LEs         ; 6 LEs                ; 2 LEs                  ; No         ; |sistema_fluxo|Selector0          ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------+
-
-
-+-------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: BlockRAM:BRAM1 ;
-+----------------+-------+------------------------------------+
-; Parameter Name ; Value ; Type                               ;
-+----------------+-------+------------------------------------+
-; addr_width     ; 11    ; Signed Integer                     ;
-; data_width     ; 8     ; Signed Integer                     ;
-+----------------+-------+------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+-------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: BlockRAM:BRAM2 ;
-+----------------+-------+------------------------------------+
-; Parameter Name ; Value ; Type                               ;
-+----------------+-------+------------------------------------+
-; addr_width     ; 11    ; Signed Integer                     ;
-; data_width     ; 8     ; Signed Integer                     ;
-+----------------+-------+------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+----------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "BlockRAM:BRAM2"                                                                     ;
-+------+--------+----------+-------------------------------------------------------------------------------------+
-; Port ; Type   ; Severity ; Details                                                                             ;
-+------+--------+----------+-------------------------------------------------------------------------------------+
-; do   ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-+------+--------+----------+-------------------------------------------------------------------------------------+
-
-
-+----------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "FIFO:FILA"                                                                          ;
-+------+--------+----------+-------------------------------------------------------------------------------------+
-; Port ; Type   ; Severity ; Details                                                                             ;
-+------+--------+----------+-------------------------------------------------------------------------------------+
-; en   ; Input  ; Info     ; Stuck at VCC                                                                        ;
-; full ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-+------+--------+----------+-------------------------------------------------------------------------------------+
-
-
-+--------------------------------------------+
-; Port Connectivity Checks: "BlockRAM:BRAM1" ;
-+------+-------+----------+------------------+
-; Port ; Type  ; Severity ; Details          ;
-+------+-------+----------+------------------+
-; we   ; Input ; Info     ; Stuck at GND     ;
-; di   ; Input ; Info     ; Stuck at GND     ;
-+------+-------+----------+------------------+
-
-
-+-------------------------------+
-; Elapsed Time Per Partition    ;
-+----------------+--------------+
-; Partition Name ; Elapsed Time ;
-+----------------+--------------+
-; Top            ; 00:00:00     ;
-+----------------+--------------+
-
-
 +-------------------------------+
 ; Analysis & Synthesis Messages ;
 +-------------------------------+
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Analysis & Synthesis
     Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
-    Info: Processing started: Sat Apr 25 13:15:23 2026
+    Info: Processing started: Tue Apr 28 18:42:26 2026
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off cont_75 -c cont_75
 Warning (20028): Parallel compilation is not licensed and has been disabled
 Info (12021): Found 2 design units, including 1 entities, in source file sistema_fluxo.vhd
@@ -357,22 +168,17 @@ Info (12021): Found 2 design units, including 1 entities, in source file blockra
     Info (12022): Found design unit 1: BlockRAM-Behavioral
     Info (12023): Found entity 1: BlockRAM
 Info (12127): Elaborating entity "sistema_fluxo" for the top level hierarchy
-Warning (10036): Verilog HDL or VHDL warning at sistema_fluxo.vhd(21): object "fifo_re" assigned a value but never read
-Warning (10036): Verilog HDL or VHDL warning at sistema_fluxo.vhd(22): object "fifo_full" assigned a value but never read
-Info (12128): Elaborating entity "BlockRAM" for hierarchy "BlockRAM:BRAM1"
-Info (12128): Elaborating entity "FIFO" for hierarchy "FIFO:FILA"
-Warning (10492): VHDL Process Statement warning at FIFO.vhd(28): signal "rst" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
-Info (17049): 1 registers lost all their fanouts during netlist optimizations.
-Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
-    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 67 device resources after synthesis - the final resource count might be different
-    Info (21058): Implemented 2 input pins
-    Info (21059): Implemented 1 output pins
-    Info (21061): Implemented 64 logic cells
-Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 4 warnings
-    Info: Peak virtual memory: 4653 megabytes
-    Info: Processing ended: Sat Apr 25 13:15:25 2026
-    Info: Elapsed time: 00:00:02
-    Info: Total CPU time (on all processors): 00:00:01
+Warning (10036): Verilog HDL or VHDL warning at sistema_fluxo.vhd(25): object "data_bram2_out" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at sistema_fluxo.vhd(36): object "fifo_full" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at sistema_fluxo.vhd(45): object "bram1_active" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at sistema_fluxo.vhd(46): object "fifo_active" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at sistema_fluxo.vhd(47): object "bram2_active" assigned a value but never read
+Error (10344): VHDL expression error at sistema_fluxo.vhd(154): expression has 11 elements, but must have 8 elements File: C:/Users/cjean/Documents/Git/Logica-Reconfiguravel/5/ProjetoQuartus/sistema_fluxo.vhd Line: 154
+Error (12153): Can't elaborate top-level user hierarchy
+Error: Quartus II 64-Bit Analysis & Synthesis was unsuccessful. 2 errors, 6 warnings
+    Error: Peak virtual memory: 4643 megabytes
+    Error: Processing ended: Tue Apr 28 18:42:27 2026
+    Error: Elapsed time: 00:00:01
+    Error: Total CPU time (on all processors): 00:00:01
 
 
