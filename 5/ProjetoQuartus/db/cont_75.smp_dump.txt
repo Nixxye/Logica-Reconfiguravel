@@ -1,13 +1,15 @@
 
 State Machine - |sistema_fluxo|state_rd
-Name state_rd.RD_WAIT state_rd.RD_FIFO state_rd.IDLE 
-state_rd.IDLE 0 0 0 
-state_rd.RD_FIFO 0 1 1 
-state_rd.RD_WAIT 1 0 1 
+Name state_rd.RD_COMPLETE state_rd.RD_WAIT state_rd.RD_FIFO state_rd.IDLE 
+state_rd.IDLE 0 0 0 0 
+state_rd.RD_FIFO 0 0 1 1 
+state_rd.RD_WAIT 0 1 0 1 
+state_rd.RD_COMPLETE 1 0 0 1 
 
 State Machine - |sistema_fluxo|state_wr
-Name state_wr.WR_WAIT state_wr.WR_FIFO state_wr.LOAD_BRAM state_wr.RESET 
-state_wr.RESET 0 0 0 0 
-state_wr.LOAD_BRAM 0 0 1 1 
-state_wr.WR_FIFO 0 1 0 1 
-state_wr.WR_WAIT 1 0 0 1 
+Name state_wr.WR_COMPLETE state_wr.WR_WAIT state_wr.WR_FIFO state_wr.LOAD_BRAM state_wr.RESET 
+state_wr.RESET 0 0 0 0 0 
+state_wr.LOAD_BRAM 0 0 0 1 1 
+state_wr.WR_FIFO 0 0 1 0 1 
+state_wr.WR_WAIT 0 1 0 0 1 
+state_wr.WR_COMPLETE 1 0 0 0 1 

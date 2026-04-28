@@ -47,6 +47,11 @@ add wave -noupdate -group "Data" -radix unsigned /sistema_fluxo_tb/UUT/data_bram
 add wave -noupdate -group "Data" -radix unsigned /sistema_fluxo_tb/UUT/data_fifo_to_bram2
 add wave -noupdate -group "Data" -radix unsigned /sistema_fluxo_tb/UUT/data_bram2_out
 
+# Sinais de dados expostos (outputs da entidade)
+add wave -noupdate -group "Data Exposed" -radix unsigned /sistema_fluxo_tb/UUT/ext_bram1_to_fifo
+add wave -noupdate -group "Data Exposed" -radix unsigned /sistema_fluxo_tb/UUT/ext_fifo_to_bram2
+add wave -noupdate -group "Data Exposed" -radix unsigned /sistema_fluxo_tb/UUT/ext_bram2_out
+
 # Sinais da FIFO
 add wave -noupdate -group "FIFO Status" /sistema_fluxo_tb/UUT/fifo_full
 add wave -noupdate -group "FIFO Status" /sistema_fluxo_tb/UUT/fifo_empty

@@ -12,6 +12,10 @@ entity sistema_fluxo is
         bram1_init_addr : in  std_logic_vector(10 downto 0) := (others => '0');
         bram1_init_di : in  std_logic_vector(7 downto 0) := (others => '0');
         completo      : out std_logic; -- Indica que os 2048 valores chegaram na BRAM2
+        -- Sinais de dados expostos para visualização
+        ext_bram1_to_fifo : out std_logic_vector(7 downto 0);
+        ext_fifo_to_bram2 : out std_logic_vector(7 downto 0);
+        ext_bram2_out     : out std_logic_vector(7 downto 0);
         -- Sinais de debug para monitoramento dos estados
         state_wr_out  : out integer range 0 to 4;
         state_rd_out  : out integer range 0 to 3
@@ -31,6 +35,10 @@ architecture structural of sistema_fluxo is
     signal bram1_addr_mux : std_logic_vector(10 downto 0);
     signal bram1_di_mux   : std_logic_vector(7 downto 0);
     signal bram1_we_mux   : std_logic;
+    
+    -- Sinais da FSM para escrita em BRAM1
+    signal fsm_bram1_we : std_logic := '0';
+    signal fsm_bram1_di : std_logic_vector(7 downto 0) := (others => '0');
     
     signal fifo_we, fifo_re   : std_logic := '0';
     signal fifo_full, fifo_empty : std_logic;
@@ -65,11 +73,16 @@ begin
 
     -- Multiplexador para BRAM1: permite testbench escrever durante inicialização
     bram1_addr_mux <= bram1_init_addr when bram1_init_we = '1' else std_logic_vector(addr1);
-    bram1_di_mux   <= bram1_init_di   when bram1_init_we = '1' else (others => '0');
-    bram1_we_mux   <= bram1_init_we;
-    
+    bram1_di_mux   <= bram1_init_di   when bram1_init_we = '1' else fsm_bram1_di;
+    bram1_we_mux   <= bram1_init_we   when bram1_init_we = '1' else fsm_bram1_we;
+        
     -- Reset da FIFO é o inverso de reset_done
     fifo_rst <= not reset_done;
+
+    -- Expor sinais de dados internos para visualização/debug
+    ext_bram1_to_fifo <= data_bram1_to_fifo;
+    ext_fifo_to_bram2 <= data_fifo_to_bram2;
+    ext_bram2_out     <= data_bram2_out;
 
     -- 1. Instância da BRAM 1
     BRAM1: entity work.BlockRAM
@@ -138,22 +151,25 @@ begin
                 state_wr <= RESET;
                 addr1 <= (others => '0');
                 fifo_we <= '0';
+                fsm_bram1_we <= '0';
+                fsm_bram1_di <= (others => '0');
             else
                 case state_wr is
                     when RESET =>
-                        -- Transição para WR_FIFO com addr1 resetado para 0
+                        -- Transição para LOAD_BRAM com addr1 resetado para 0
                         addr1 <= (others => '0');
                         state_wr <= LOAD_BRAM;
-                        bram1_we_mux <= '1';
+                        fsm_bram1_we <= '1';
+                        
                     when LOAD_BRAM =>
+                        fsm_bram1_di <= std_logic_vector(addr1(7 downto 0));
                         if addr1 = 2047 then
-                            bram1_we_mux <= '0'; -- Terminou de carregar a BRAM1
+                            fsm_bram1_we <= '0'; -- Terminou de carregar a BRAM1
                             state_wr <= WR_FIFO;
                             addr1 <= (others => '0'); -- Resetar addr1 para leitura
                             fifo_we <= '1';
                         else
                             addr1 <= addr1 + 1;
-                            bram1_di_mux <= std_logic_vector(addr1(7 downto 0));
                         end if;
 
                     when WR_FIFO =>
@@ -171,6 +187,7 @@ begin
                     when WR_WAIT =>
                         if fifo_count <= 512 then -- 50% de 1024
                             state_wr <= WR_FIFO;
+                            fifo_we <= '1';
                         end if;
                     
                     when WR_COMPLETE =>
@@ -214,12 +231,14 @@ begin
                             if fifo_empty = '0' then
                                 fifo_re <= '1';
                                 we_bram2 <= '1';
-                                addr2 <= addr2 + 1;
-                                
                                 if addr2 = 2047 then
                                     state_rd <= RD_COMPLETE;
+                                    addr2 <= (others => '0');
+                                    addr1 <= (others => '0');
                                 end if;
                             end if;
+                        elsif we_bram2 = '1' and fifo_re = '1' then
+                            addr2 <= addr2 + 1;
                         end if;
 
                     when RD_WAIT =>
@@ -228,8 +247,8 @@ begin
                         end if;
                     
                     when RD_COMPLETE =>
-                        -- Leitura completa
-                        null;
+                        addr2 <= addr2 + 1;
+                        addr1 <= addr1 + 1;
                 end case;
             end if;
         end if;
