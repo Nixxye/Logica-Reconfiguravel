@@ -22,14 +22,13 @@ add wave -noupdate -group "Status" /sistema_fluxo_tb/completo
 # Sinais de Enable das entidades
 add wave -noupdate -group "Enable Entities" /sistema_fluxo_tb/en_bram1
 add wave -noupdate -group "Enable Entities" /sistema_fluxo_tb/en_bram2
-add wave -noupdate -group "Enable Entities" /sistema_fluxo_tb/UUT/bram1_active
-add wave -noupdate -group "Enable Entities" /sistema_fluxo_tb/UUT/fifo_active
-add wave -noupdate -group "Enable Entities" /sistema_fluxo_tb/UUT/bram2_active
 
 # Sinais internos da máquina de escrita (BRAM1 -> FIFO)
 add wave -noupdate -group "Write FSM" /sistema_fluxo_tb/UUT/state_wr
 add wave -noupdate -group "Write FSM" -radix unsigned /sistema_fluxo_tb/UUT/addr1
 add wave -noupdate -group "Write FSM" /sistema_fluxo_tb/UUT/fifo_we
+add wave -noupdate -group "Write FSM" /sistema_fluxo_tb/UUT/bram1_we_mux
+add wave -noupdate -group "Write FSM" -radix unsigned /sistema_fluxo_tb/UUT/fsm_bram1_di
 add wave -noupdate -group "Write FSM" -radix unsigned /sistema_fluxo_tb/UUT/fifo_count
 
 # Sinais internos da máquina de leitura (FIFO -> BRAM2)

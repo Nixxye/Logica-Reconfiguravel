@@ -16,7 +16,7 @@ L5
 V9nEZ5^XKlM]n1Z?H=_=iH2
 Z8 OV;C;10.1d;51
 33
-Z9 !s108 1777417698.374000
+Z9 !s108 1777422100.090000
 Z10 !s90 -reportprogress|300|-2008|BlockRAM.vhd|
 Z11 !s107 BlockRAM.vhd|
 Z12 o-2008 -O0
@@ -91,7 +91,7 @@ L5
 V>0`1I>lmn2Cg_[`n1[a:k0
 R8
 33
-Z24 !s108 1777417698.428000
+Z24 !s108 1777422100.140000
 Z25 !s90 -reportprogress|300|-2008|FIFO.vhd|
 Z26 !s107 FIFO.vhd|
 R12
@@ -154,7 +154,7 @@ R13
 !s100 Fc;S_UFbJ?:SgZlZNVeCD0
 !i10b 1
 Esistema_fluxo
-Z34 w1777417539
+Z34 w1777422097
 R2
 R3
 R4
@@ -166,12 +166,12 @@ L5
 V4MULR3KSC13WhAZO<Ld?V2
 R8
 33
-Z37 !s108 1777417698.480000
+Z37 !s108 1777422100.191000
 Z38 !s90 -reportprogress|300|-2008|sistema_fluxo.vhd|
 Z39 !s107 sistema_fluxo.vhd|
 R12
 R13
-!s100 h1TVPD4D:MC]MS_[d1T7A3
+!s100 6Bg9h0bzLK1lOmdd8DYdh0
 !i10b 1
 Astructural
 R27
@@ -180,10 +180,9 @@ R2
 R3
 R4
 Z40 DEx4 work 13 sistema_fluxo 0 22 4MULR3KSC13WhAZO<Ld?V2
-l72
-L25
-VMVeZ5TUi>9NMzP8;GP>0z0
-!s100 A1MDS8E@MT]DR[8gAHZfQ1
+l58
+L22
+Vah<OXkRjKQg>kJd>P=PT_3
 R8
 33
 R37
@@ -191,6 +190,7 @@ R38
 R39
 R12
 R13
+!s100 8ZkU3S3J5z9_noCGPBTQ12
 !i10b 1
 Esistema_fluxo_tb
 Z41 w1777416187
@@ -207,7 +207,7 @@ V1=h@HNPj^SaLdSe[]bUPm1
 R8
 33
 !i10b 1
-Z44 !s108 1777417698.534000
+Z44 !s108 1777422100.244000
 Z45 !s90 -reportprogress|300|-2008|sistema_fluxo_tb.vhd|
 Z46 !s107 sistema_fluxo_tb.vhd|
 R12
