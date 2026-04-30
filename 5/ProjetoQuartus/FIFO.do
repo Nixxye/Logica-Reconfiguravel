@@ -16,8 +16,8 @@ vsim -t 1ps -voptargs="+acc" work.FIFO_tb
 # Adicionar sinais ao waveform
 add wave -noupdate -group "Clock/Reset" /FIFO_tb/clk
 add wave -noupdate -group "Clock/Reset" /FIFO_tb/rst
-add wave -noupdate -group "Control" /FIFO_tb/en
-add wave -noupdate -group "Control" /FIFO_tb/push_pop
+add wave -noupdate -group "Control" /FIFO_tb/write_enable
+add wave -noupdate -group "Control" /FIFO_tb/read_enable
 add wave -noupdate -group "Data" /FIFO_tb/din
 add wave -noupdate -group "Data" /FIFO_tb/dout
 add wave -noupdate -group "Status" /FIFO_tb/empty

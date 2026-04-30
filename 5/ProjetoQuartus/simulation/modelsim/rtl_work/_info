@@ -16,7 +16,7 @@ L5
 VO_<>X99XAUU9;;lL]QWn43
 Z8 OV;C;10.1d;51
 31
-Z9 !s108 1777417686.394000
+Z9 !s108 1777505620.460000
 Z10 !s90 -reportprogress|300|-93|-work|work|C:/Users/cjean/Documents/Git/Logica-Reconfiguravel/5/ProjetoQuartus/BlockRAM.vhd|
 Z11 !s107 C:/Users/cjean/Documents/Git/Logica-Reconfiguravel/5/ProjetoQuartus/BlockRAM.vhd|
 Z12 o-93 -work work -O0
@@ -53,7 +53,7 @@ L5
 VAZ[>F?hkmiUQLH8HoX3Mi3
 R8
 31
-Z18 !s108 1777417686.331000
+Z18 !s108 1777505620.307000
 Z19 !s90 -reportprogress|300|-93|-work|work|C:/Users/cjean/Documents/Git/Logica-Reconfiguravel/5/ProjetoQuartus/FIFO.vhd|
 Z20 !s107 C:/Users/cjean/Documents/Git/Logica-Reconfiguravel/5/ProjetoQuartus/FIFO.vhd|
 R12
@@ -78,7 +78,7 @@ R13
 !s100 gAKRznHdGDSMWd:OljFTO1
 !i10b 1
 Esistema_fluxo
-Z22 w1777417539
+Z22 w1777422097
 R2
 R3
 R4
@@ -88,11 +88,11 @@ Z24 FC:/Users/cjean/Documents/Git/Logica-Reconfiguravel/5/ProjetoQuartus/sistema
 l0
 L5
 VnA[<7M4l[9]8CG9hj]1DQ0
-!s100 h1TVPD4D:MC]MS_[d1T7A3
+!s100 6Bg9h0bzLK1lOmdd8DYdh0
 R8
 31
 !i10b 1
-Z25 !s108 1777417686.454000
+Z25 !s108 1777505620.522000
 Z26 !s90 -reportprogress|300|-93|-work|work|C:/Users/cjean/Documents/Git/Logica-Reconfiguravel/5/ProjetoQuartus/sistema_fluxo.vhd|
 Z27 !s107 C:/Users/cjean/Documents/Git/Logica-Reconfiguravel/5/ProjetoQuartus/sistema_fluxo.vhd|
 R12
@@ -104,10 +104,10 @@ R2
 R3
 R4
 DEx4 work 13 sistema_fluxo 0 22 nA[<7M4l[9]8CG9hj]1DQ0
-l72
-L25
-VI:@<^o6z^WYjKRj_nNEBc2
-!s100 A1MDS8E@MT]DR[8gAHZfQ1
+l58
+L22
+Vi3Jo18N7c;F_?G5?bORgT0
+!s100 8ZkU3S3J5z9_noCGPBTQ12
 R8
 31
 !i10b 1
